@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>Investigación · María José Torres-Prioris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0A0A0A;
+  --surface:  #141414;
+  --surface2: #1E1E1E;
+  --border:   #2A2A2A;
+  --text:     #E8E8E8;
+  --muted:    #707070;
+  --teal:     #4ECDC4;
+  --teal-dim: rgba(78,205,196,0.12);
+  --teal-mid: rgba(78,205,196,0.25);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 60px;
+  background: rgba(10,10,10,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--teal); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--teal); }
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  color: var(--muted);
+  transition: background .2s, color .2s;
+}
+body.lang-es .lang-btn[data-lang="es"],
+body.lang-en .lang-btn[data-lang="en"] { background: var(--teal); color: #0A0A0A; }
+
+/* ── PAGE HEADER ── */
+
+.page-header {
+  background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.98)), url('images/brain.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.page-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--teal); }
+.page-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.page-bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #B0B0B0;
+  max-width: 780px;
+}
+.page-bio strong { color: var(--text); font-weight: 500; }
+.page-bio em { color: #C8C8C8; font-style: italic; }
+
+/* ── SECTIONS ── */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-of-type { border-bottom: none; }
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+/* ── LÍNEAS ── */
+.lines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+.line-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 26px 22px;
+  transition: border-color .2s, transform .2s;
+}
+.line-card:hover { border-color: rgba(78,205,196,.4); transform: translateY(-2px); }
+.line-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+.line-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 7px;
+}
+.line-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── FILTER TABS ── */
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 7px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.filter-btn:hover { color: var(--text); border-color: var(--muted); }
+.filter-btn.active { background: var(--teal-dim); color: var(--teal); border-color: rgba(78,205,196,.3); }
+
+/* ── PUBLICATIONS ── */
+.pub-group { display: none; }
+.pub-group.visible { display: block; }
+
+.pub-list { }
+.pub-item {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 20px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  padding-top: 2px;
+}
+.pub-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 2px 6px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.pub-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+.pub-authors { font-size: 12.5px; color: var(--muted); margin-bottom: 3px; }
+.pub-authors em { color: #C8C8C8; font-style: normal; font-weight: 500; }
+.pub-journal { font-size: 12px; color: var(--muted); font-style: italic; }
+.pub-actions { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; }
+.pub-btn {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.pub-btn-pdf { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(78,205,196,.25); }
+.pub-btn-pdf:hover { background: var(--teal); color: #0A0A0A; }
+.pub-btn-doi { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.pub-btn-doi:hover { color: var(--text); border-color: var(--muted); }
+
+.repo-note {
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.repo-note strong { color: var(--text); }
+.repo-note a { color: var(--teal); text-decoration: none; }
+
+/* ── PROYECTOS ── */
+.project-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.project-item:last-child { border-bottom: none; }
+.project-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.project-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 6px; }
+.project-role {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid rgba(78,205,196,.2);
+}
+.project-date {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ── ESTANCIAS ── */
+.stay-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.stay-item:last-child { border-bottom: none; }
+.stay-date {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.stay-place {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.stay-meta { font-size: 13px; color: var(--muted); }
+
+/* ── COLABORACIONES ── */
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.collab-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 22px;
+  transition: border-color .2s;
+}
+.collab-card:hover { border-color: rgba(78,205,196,.3); }
+.collab-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.collab-inst { font-size: 13px; color: var(--teal); margin-bottom: 6px; }
+.collab-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+/* ── FOOTER ── */
+.footer-wrap { border-top: 1px solid var(--border); }
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.footer-left { font-size: 13px; color: var(--muted); line-height: 1.8; }
+.footer-left a { color: var(--teal); text-decoration: none; }
+.footer-right { display: flex; gap: 20px; }
+.footer-right a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-right a:hover { color: var(--teal); }
+.logo-bar { display: flex; align-items: center; justify-content: center; gap: 32px; }
+.logo-bar img { height: 120px; width: auto; opacity: 0.9; }
+
+/* ── LANG ── */
+body.lang-en .es-text { display: none; }
+body.lang-es .en-text { display: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 820px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .page-header, .section { padding-left: 24px; padding-right: 24px; }
+  .pub-item { grid-template-columns: 42px 1fr; }
+  .pub-actions { flex-direction: row; grid-column: 2; }
+  .stay-item { grid-template-columns: 1fr; gap: 6px; }
+  .project-item { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body class="lang-es">
+
+<!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo">MJT<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="research.html" class="active es-text">Investigación</a><a href="research.html" class="active en-text">Research</a></li>
+    <li><a href="teaching.html" class="es-text">Docencia</a><a href="teaching.html" class="en-text">Teaching</a></li>
+    
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- ══ PAGE HEADER ════════════════════════════════════════════════════════════ -->
+<div class="page-header">
+  <div class="page-eyebrow">
+    <span class="es-text">Investigación</span>
+    <span class="en-text">Research</span>
+  </div>
+  <h1 class="es-text">Neuropsicología del lenguaje<br>y afasia post-ictus</h1>
+  <h1 class="en-text">Language neuropsychology<br>and post-stroke aphasia</h1>
+  <p class="page-bio es-text">
+    Investigo los mecanismos cognitivos y cerebrales del lenguaje, la afasia post-ictus y la plasticidad cerebral. Mi trabajo aborda la caracterización de perfiles afásicos, el análisis del habla conectada y el discurso espontáneo, y los mecanismos de plasticidad que subyacen a la recuperación funcional tras daño cerebral adquirido. También estudio la eficacia de intervenciones combinadas que integran <strong>modulación colinérgica</strong>, <strong>terapia intensiva del lenguaje</strong> y <strong>neuroestimulación transcraneal (tDCS)</strong>. He publicado 24 artículos en revistas internacionales de alto impacto como <em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em> o <em>Scientific Reports</em>, con un índice h de 12 y 408 citas. Soy Editora Invitada en <em>Brain and Language</em> (Elsevier, Q1) y miembro de la red internacional <strong>INCLUDE</strong>, dedicada a promover la diversidad lingüística en investigación neurocientífica.
+  </p>
+  <p class="page-bio en-text">
+    I investigate the cognitive and neural mechanisms of language, post-stroke aphasia and brain plasticity. My work addresses the characterisation of aphasic profiles, connected speech and spontaneous discourse analysis, and the plasticity mechanisms underlying functional recovery after acquired brain injury. I also study the efficacy of combined interventions integrating <strong>cholinergic modulation</strong>, <strong>intensive language therapy</strong> and <strong>transcranial direct current stimulation (tDCS)</strong>. I have published 24 articles in high-impact international journals including <em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em> and <em>Scientific Reports</em>, with an h-index of 12 and 408 citations. I am a Guest Editor at <em>Brain and Language</em> (Elsevier, Q1) and a member of the international <strong>INCLUDE</strong> network, dedicated to promoting linguistic diversity in neuroscientific research.
+  </p>
+</div>
+
+<!-- ══ LÍNEAS DE INVESTIGACIÓN ═══════════════════════════════════════════════ -->
+<section class="section" id="lines">
+  <div class="section-label es-text">Líneas de investigación</div>
+  <div class="section-label en-text">Research lines</div>
+  <div class="lines-grid">
+    <div class="line-card">
+      <span class="line-icon">🧠</span>
+      <div class="line-title es-text">Neuropsicología del lenguaje</div>
+      <div class="line-title en-text">Language neuropsychology</div>
+      <p class="line-desc es-text">Bases neurales del lenguaje y la repetición verbal. Caracterización de perfiles afásicos y análisis de habla conectada en patología adquirida.</p>
+      <p class="line-desc en-text">Neural bases of language and verbal repetition. Characterisation of aphasic profiles and connected speech analysis in acquired pathology.</p>
+    </div>
+    <div class="line-card">
+      <span class="line-icon">💬</span>
+      <div class="line-title es-text">Afasia y rehabilitación</div>
+      <div class="line-title en-text">Aphasia & rehabilitation</div>
+      <p class="line-desc es-text">Recuperación funcional y plasticidad cerebral post-ictus. Tratamientos combinados: farmacología colinérgica, terapia intensiva y tDCS.</p>
+      <p class="line-desc en-text">Functional recovery and brain plasticity after stroke. Combined treatments: cholinergic pharmacology, intensive therapy and tDCS.</p>
+    </div>
+    <div class="line-card">
+      <span class="line-icon">⚡</span>
+      <div class="line-title es-text">Neuromodulación</div>
+      <div class="line-title en-text">Neuromodulation</div>
+      <p class="line-desc es-text">Eficacia de la estimulación transcraneal (tDCS) y la modulación colinérgica sobre la recuperación del lenguaje en afasia crónica.</p>
+      <p class="line-desc en-text">Efficacy of transcranial stimulation (tDCS) and cholinergic modulation on language recovery in chronic aphasia.</p>
+    </div>
+    <div class="line-card">
+      <span class="line-icon">🔬</span>
+      <div class="line-title es-text">Neuroimagen multimodal</div>
+      <div class="line-title en-text">Multimodal neuroimaging</div>
+      <p class="line-desc es-text">Correlatos estructurales y funcionales del lenguaje. Tractografía y conectividad de las vías dorsal y ventral. Meta-análisis ALE.</p>
+      <p class="line-desc en-text">Structural and functional correlates of language. Tractography and connectivity of dorsal and ventral pathways. ALE meta-analysis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PUBLICACIONES ══════════════════════════════════════════════════════════ -->
+<section class="section" id="publications">
+  <div class="section-label es-text">Publicaciones</div>
+  <div class="section-label en-text">Publications</div>
+
+  <div class="filter-tabs">
+    <button class="filter-btn active" onclick="filterPubs('journals', this)">
+      <span class="es-text">Artículos (24)</span>
+      <span class="en-text">Journal articles (24)</span>
+    </button>
+    <button class="filter-btn" onclick="filterPubs('chapters', this)">
+      <span class="es-text">Capítulos de libro (5)</span>
+      <span class="en-text">Book chapters (5)</span>
+    </button>
+    <button class="filter-btn" onclick="filterPubs('conferences', this)">
+      <span class="es-text">Congresos (selección)</span>
+      <span class="en-text">Conferences (selection)</span>
+    </button>
+  </div>
+
+  <!-- ARTÍCULOS -->
+  <div class="pub-group visible" id="pub-journals">
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <div class="pub-title">Mapping the neural patterns of verbal repetition: an activation likelihood estimation meta-analysis</div>
+          <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.</em> et al.</div>
+          <div class="pub-journal">Brain Structure and Function, 231, 75</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J24.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1007/s00429-026-03119-3" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <div class="pub-title">Speech and language outcome measures in clinical trials of Alzheimer's and Parkinson's diseases</div>
+          <div class="pub-authors">Berthier M.L., Sosa-Welford A., Orozco-Arroyave J.R., López-Barroso D., <em>Torres-Prioris M.J.</em>, Dávila G., García A.M.</div>
+          <div class="pub-journal">Expert Review of Neurotherapeutics, 26(1), 15–34</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J23.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1080/14737175.2025.2600616" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <div class="pub-title">Psycholinguistic variables influencing conduite d'approche in repetition tasks: an experimental exploration and mediation analysis in a person with conduction aphasia</div>
+          <div class="pub-authors">Gutiérrez-Cordero I., Berthier M.L., <em>Torres-Prioris M.J.</em>, García-Orza J.</div>
+          <div class="pub-journal">Aphasiology, 1–41</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J21.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">Definition: Conduite d'approche</div>
+          <div class="pub-authors">Gutiérrez-Cordero I., <em>Torres-Prioris M.J.</em>, García-Orza J.</div>
+          <div class="pub-journal">Cortex, 185, 151–152</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J22.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1016/j.cortex.2025.02.007" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Brain structural and functional correlates of the heterogeneous progression of mixed transcortical aphasia</div>
+          <div class="pub-authors">López-Barroso D., Paredes-Pacheco J., <em>Torres-Prioris M.J.</em>, Dávila G., Berthier M.L.</div>
+          <div class="pub-journal">Brain Structure and Function, 228(5), 1347–1364</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J20.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Turning the spotlight to cholinergic pharmacotherapy of the human language system</div>
+          <div class="pub-authors">Dávila G.*, <em>Torres-Prioris M.J.*</em>, López-Barroso D., Berthier M.L. <span style="font-size:11px;color:var(--muted)">*Equal contribution</span></div>
+          <div class="pub-journal">CNS Drugs, 37(7), 599–637</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J19.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Donepezil alone and combined with intensive language-action therapy on depression and apathy in chronic post-stroke aphasia</div>
+          <div class="pub-authors">Berthier M.L., Edelkraut L., López-González F.J., López-Barroso D., Mohr B., Pulvermüller F., ..., <em>Torres-Prioris M.J.</em>, Dávila G.</div>
+          <div class="pub-journal">Brain and Language, 236, 105205</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J18.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2022</div>
+        <div>
+          <div class="pub-title">Automated detection of speech timing alterations in autopsy-confirmed non-fluent/agrammatic variant primary progressive aphasia</div>
+          <div class="pub-authors">García A.M., Welch A.E., ..., <em>Torres-Prioris M.J.</em>, ..., Gorno-Tempini M.L.</div>
+          <div class="pub-journal">Neurology <span style="font-size:11px;color:var(--teal)">· FI 9.91 · D1</span></div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J17.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2022</div>
+        <div>
+          <div class="pub-title">Spectrum of neuropsychiatric symptoms in chronic post-stroke aphasia</div>
+          <div class="pub-authors">Edelkraut L., López-Barroso D., <em>Torres-Prioris M.J.</em>, Starkstein S.E., ..., Dávila G.</div>
+          <div class="pub-journal">World Journal of Psychiatry, 12(3), 450–469</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J16.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.5498/wjp.v12.i3.450" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-title">Controlling the past, owning the present, and future: cholinergic modulation decreases semantic perseverations in a person with post-stroke aphasia</div>
+          <div class="pub-authors">Berthier M.L., Santana-Moreno D., ..., <em>Torres-Prioris M.J.</em></div>
+          <div class="pub-journal">Aphasiology, 1–19</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J15.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-title">Echolalia: Paying attention to a forgotten clinical feature of primary progressive aphasia</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, Berthier M.L.</div>
+          <div class="pub-journal">European Journal of Neurology, 28(4), 1102–1103</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J14.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Neurocognitive signatures of phonemic sequencing in expert backward speakers</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, López-Barroso D., Càmara E., Fittipaldi S., Sedeño L., Ibáñez A., ..., García A.M.</div>
+          <div class="pub-journal">Scientific Reports, 10(1), 1–17</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J13.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Developmental Dynamic Dysphasia: Are Bilateral Brain Abnormalities a Signature of Inefficient Neural Plasticity?</div>
+          <div class="pub-authors">Berthier M.L., Dávila G., <em>Torres-Prioris M.J.</em>, ..., López-Barroso D.</div>
+          <div class="pub-journal">Frontiers in Human Neuroscience, 14, 73</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J12.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Pharmacotherapy of traumatic childhood aphasia: Beneficial effects of donepezil alone and combined with intensive naming therapy</div>
+          <div class="pub-authors">Dávila G., ..., <em>Torres-Prioris M.J.*</em>, López-Barroso D.* <span style="font-size:11px;color:var(--muted)">*Equal contribution</span></div>
+          <div class="pub-journal">Frontiers in Pharmacology, 11, 1144</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J10.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">Repetitive verbal behaviors are not always harmful signs: Compensatory plasticity within the language network in aphasia</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, López-Barroso D., Roé-Vellvé N., Paredes-Pacheco J., Dávila G., Berthier M.L.</div>
+          <div class="pub-journal">Brain and Language, 190, 16–30</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J09.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">Language as a threat: Multimodal evaluation and interventions for overwhelming linguistic anxiety in severe aphasia</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, López-Barroso D., Paredes-Pacheco J., Roé-Vellvé N., Dawid-Milner M.S., Berthier M.L.</div>
+          <div class="pub-journal">Frontiers in Psychology, 10, 678</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J08.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">"Need to Know" or the Strong Urge to Find Names of Unique Entities in Acquired Obsessive-Compulsive Disorder</div>
+          <div class="pub-authors">Edelkraut L., Berthier M.L., ..., <em>Torres-Prioris M.J.</em>, ..., López-Barroso D.</div>
+          <div class="pub-journal">Cognitive and Behavioral Neurology, 32(2), 124–133</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J07.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2018</div>
+        <div>
+          <div class="pub-title">Plasticity in the working memory system: Life span changes and response to injury</div>
+          <div class="pub-authors">Froudist-Walsh S., López-Barroso D., <em>Torres-Prioris M.J.</em>, Croxson P.L., Berthier M.L.</div>
+          <div class="pub-journal">The Neuroscientist, 24(3), 261–276</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J06.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2018</div>
+        <div>
+          <div class="pub-title">A reappraisal of mitigated echolalia in aphasia with evaluation of neural correlates and treatment approaches</div>
+          <div class="pub-authors">Berthier M.L., <em>Torres-Prioris M.J.</em>, López-Barroso D., ..., Dávila G.</div>
+          <div class="pub-journal">Aphasiology, 32(7), 784–813</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J05.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <div class="pub-title">Cholinergic potentiation and audiovisual repetition-imitation therapy improve speech production and communication deficits in crossed aphasia</div>
+          <div class="pub-authors">Berthier M.L., De-Torres I., ..., <em>Torres-Prioris M.J.</em>, ..., Dávila G.</div>
+          <div class="pub-journal">Frontiers in Human Neuroscience, 11, 304</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J04.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <div class="pub-title">Thinking on treating echolalia in aphasia: recommendations and caveats for future research directions</div>
+          <div class="pub-authors">Berthier M.L., <em>Torres-Prioris M.J.</em>, López-Barroso D.</div>
+          <div class="pub-journal">Frontiers in Human Neuroscience, 11, 164</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J03.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2016</div>
+        <div>
+          <div class="pub-title">Mild developmental foreign accent syndrome and psychiatric comorbidity: altered white matter integrity in speech and emotion regulation networks</div>
+          <div class="pub-authors">Berthier M.L., Roé-Vellvé N., ..., <em>Torres-Prioris M.J.</em>, ..., Dávila G.</div>
+          <div class="pub-journal">Frontiers in Human Neuroscience, 10, 399</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J02.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div>
+          <div class="pub-title">Loss of regional accent after damage to the speech production network</div>
+          <div class="pub-authors">Berthier M.L., Dávila G., ..., <em>Torres-Prioris M.J.</em>, ..., Ruiz-Cruces R.</div>
+          <div class="pub-journal">Frontiers in Human Neuroscience, 9, 610</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/J01.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="repo-note es-text">
+      <strong>Repositorio:</strong> los PDFs están disponibles en la carpeta <code>papers/</code> de este repositorio (J01.pdf – J24.pdf). Si no puedes acceder a algún artículo, escríbeme a través de la página de <a href="contact.html">contacto</a>.
+    </div>
+    <div class="repo-note en-text">
+      <strong>Repository:</strong> PDFs are available in the <code>papers/</code> folder of this repository (J01.pdf – J24.pdf). If you cannot access a paper, contact me via the <a href="contact.html">contact</a> page.
+    </div>
+  </div>
+
+  <!-- CAPÍTULOS -->
+  <div class="pub-group" id="pub-chapters">
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div>
+          <div class="pub-title">Efficacy of tDCS in post-stroke aphasia recovery</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, Berthier M.L., López-Barroso D.</div>
+          <div class="pub-journal">In: Árias N. & Jiménez García A.M. (Eds.), <em>An Insight into Neuromodulation</em>, pp. 121–146. Nova Science Publishers. ISBN: 979-8-89113-445-4</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/B05.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Pharmacological Treatment of Post-Stroke Cognitive Deficits</div>
+          <div class="pub-authors">Berthier M.L., Dávila G., Edelkraut L., López-Barroso D., <em>Torres-Prioris M.J.</em>, Tubio J.</div>
+          <div class="pub-journal"><em>Neurovascular Neuropsychology</em>, 2nd ed. Springer</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/B04.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">Importancia del sexo y las diferencias interindividuales en la representación cerebral del lenguaje</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em> et al.</div>
+          <div class="pub-journal"><em>Tratado de neuropsicología clínica</em>, pp. 105–124. Librería Akadia. ISBN: 978-987-570-371-0</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/B03.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div>
+          <div class="pub-title">Echophenomena in aphasia: Causal mechanisms and clues for intervention</div>
+          <div class="pub-authors">Berthier M.L., Dávila G., <em>Torres-Prioris M.J.</em></div>
+          <div class="pub-journal">In: Coppens P. & Patterson J. (Eds.), <em>Aphasia Rehabilitation: Clinical Challenges</em>, pp. 143–172. Jones & Bartlett. ISBN: 978-1-284-04271-5</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/B02.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div>
+          <div class="pub-title">Neuropharmacologic approaches to aphasia rehabilitation</div>
+          <div class="pub-authors">Berthier M.L., Dávila G., <em>Torres-Prioris M.J.</em></div>
+          <div class="pub-journal"><em>Routledge Handbook of Communication Disorders</em>, pp. 114–124. Routledge. ISBN: 978-0-415-82102-5</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/B01.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONGRESOS -->
+  <div class="pub-group" id="pub-conferences">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;font-style:italic" class="es-text">Selección de comunicaciones en congresos internacionales (2021–2023). Lista completa disponible bajo petición.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;font-style:italic" class="en-text">Selection of international conference presentations (2021–2023). Full list available on request.</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-tag">Póster · SNL 2023</div>
+          <div class="pub-title">An ALE meta-analysis of the functional correlates of word and pseudoword repetition</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, Hohl A., Berthier M.L., López-Barroso D.</div>
+          <div class="pub-journal">Society for the Neurobiology of Language · Marseille</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/C54.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-tag">Póster · SNL 2023</div>
+          <div class="pub-title">Neural substrates of the heterogeneous evolution of mixed transcortical aphasia</div>
+          <div class="pub-authors">López-Barroso D., Paredes-Pacheco J., <em>Torres-Prioris M.J.</em>, Dávila G., Berthier M.L.</div>
+          <div class="pub-journal">Society for the Neurobiology of Language · Marseille</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/C55.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-tag">Comunicación oral · SNL 2021</div>
+          <div class="pub-title">Does the connectivity within the right hemisphere predict variability in verbal repetition abilities in post-stroke aphasia?</div>
+          <div class="pub-authors">Hohl A., López-Barroso D., <em>Torres-Prioris M.J.</em>, ..., Berthier M.L.</div>
+          <div class="pub-journal">Society for the Neurobiology of Language · Online</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/C43.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-tag">Póster · ASHA 2021</div>
+          <div class="pub-title">Combined Therapies Induce Beneficial Changes on the Executive Control Attentional Network in Chronic Post-stroke Aphasia</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, López-Barroso D., Edelkraut L., Berthier M.L., Dávila G., Aloisi J.</div>
+          <div class="pub-journal">ASHA Convention · Online</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/C51.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-tag">Póster · OHBM 2019</div>
+          <div class="pub-title">Compensatory plasticity within the language networks in Aphasia</div>
+          <div class="pub-authors"><em>Torres-Prioris M.J.</em>, López-Barroso D., Roé-Vellvé N., Paredes-Pacheco J., Dávila G., Berthier M.L.</div>
+          <div class="pub-journal">25th Annual Meeting of the Organization for Human Brain Mapping · Rome</div>
+        </div>
+        <div class="pub-actions">
+          <a href="papers/C28.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROYECTOS ══════════════════════════════════════════════════════════════ -->
+<section class="section" id="projects">
+  <div class="section-label es-text">Proyectos de investigación</div>
+  <div class="section-label en-text">Research projects</div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title es-text">Brain markers of response to post-stroke chronic aphasia treatments: towards an individualized approach to the enhancement of neuroplasticity</div>
+      <div class="project-title en-text">Brain markers of response to post-stroke chronic aphasia treatments: towards an individualized approach to the enhancement of neuroplasticity</div>
+      <div class="project-desc es-text">Junta de Andalucía, cofinanciado con Fondos FEDER. IP: Diana López-Barroso.</div>
+      <div class="project-desc en-text">Junta de Andalucía, co-funded with ERDF. PI: Diana López-Barroso.</div>
+      <span class="project-role es-text">Investigadora colaboradora</span>
+      <span class="project-role en-text">Research collaborator</span>
+    </div>
+    <div class="project-date">2019 – 2021</div>
+  </div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title">Study of the efficacy and brain reorganization after combined treatment with Donepezil, Intensive Language Therapy and tDCS in chronic aphasia</div>
+      <div class="project-desc es-text">Instituto Carlos III (ISCIII) PI16/01514. IP: Marcelo L. Berthier.</div>
+      <div class="project-desc en-text">Instituto Carlos III (ISCIII) PI16/01514. PI: Marcelo L. Berthier.</div>
+      <span class="project-role es-text">Investigadora colaboradora</span>
+      <span class="project-role en-text">Research collaborator</span>
+    </div>
+    <div class="project-date">2017 – 2021</div>
+  </div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title es-text">Lateralización de la vía dorsal del lenguaje como predictor anatómico del aprendizaje de palabras mediado por tDCS</div>
+      <div class="project-title en-text">Lateralisation of the dorsal language pathway as an anatomical predictor of word learning mediated by tDCS</div>
+      <div class="project-desc es-text">Proyectos para jóvenes investigadores. Universidad de Málaga. IP: Diana López-Barroso.</div>
+      <div class="project-desc en-text">Projects for young researchers. University of Málaga. PI: Diana López-Barroso.</div>
+      <span class="project-role es-text">Miembro del equipo</span>
+      <span class="project-role en-text">Team member</span>
+    </div>
+    <div class="project-date">2018 – 2020</div>
+  </div>
+</section>
+
+<!-- ══ ESTANCIAS ══════════════════════════════════════════════════════════════ -->
+<section class="section" id="stays">
+  <div class="section-label es-text">Estancias internacionales</div>
+  <div class="section-label en-text">International research stays</div>
+
+  <div class="stay-item">
+    <div class="stay-date">Ene. – Sep. 2023</div>
+    <div>
+      <div class="stay-place">Wellcome Centre for Human Neuroimaging · University College London</div>
+      <div class="stay-meta es-text">Supervisora: Dra. Cathy Price · Beca Margarita Salas (NextGenerationEU / Ministerio de Universidades)</div>
+      <div class="stay-meta en-text">Supervisor: Dr. Cathy Price · Margarita Salas Fellowship (NextGenerationEU / Ministry of Universities)</div>
+    </div>
+  </div>
+
+  <div class="stay-item">
+    <div class="stay-date">May. – Oct. 2022</div>
+    <div>
+      <div class="stay-place">Wellcome Centre for Human Neuroimaging · University College London</div>
+      <div class="stay-meta es-text">Supervisora: Dra. Cathy Price · Plan PAIDI 2020 (Junta de Andalucía / UE)</div>
+      <div class="stay-meta en-text">Supervisor: Dr. Cathy Price · PAIDI 2020 (Junta de Andalucía / EU)</div>
+    </div>
+  </div>
+
+  <div class="stay-item">
+    <div class="stay-date">May. – Jul. 2018</div>
+    <div>
+      <div class="stay-place">Cognition and Brain Plasticity Unit · University of Barcelona</div>
+      <div class="stay-meta es-text">Supervisor: Dr. Estela Càmara · Beca de movilidad FPU (Ministerio de Educación)</div>
+      <div class="stay-meta en-text">Supervisor: Dr. Estela Càmara · FPU mobility grant (Ministry of Education)</div>
+    </div>
+  </div>
+
+  <div class="stay-item">
+    <div class="stay-date">Jun. – Ago. 2017</div>
+    <div>
+      <div class="stay-place">Instituto de Neurociencia Cognitiva y Traslacional · Universidad de San Andrés, Buenos Aires</div>
+      <div class="stay-meta es-text">Supervisor: Dr. Adolfo García · Beca de movilidad Plan Propio UMA</div>
+      <div class="stay-meta en-text">Supervisor: Dr. Adolfo García · UMA mobility grant</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COLABORACIONES ═════════════════════════════════════════════════════════ -->
+<section class="section" id="collaborations">
+  <div class="section-label es-text">Colaboraciones internacionales</div>
+  <div class="section-label en-text">International collaborations</div>
+
+  <div class="collab-grid">
+    <div class="collab-card">
+      <div class="collab-name">Dra. Cathy Price</div>
+      <div class="collab-inst">Wellcome Centre for Human Neuroimaging · UCL, London</div>
+      <p class="collab-desc es-text">Neuroimagen funcional y estructural del lenguaje. Meta-análisis de correlatos neurales de la repetición verbal.</p>
+      <p class="collab-desc en-text">Functional and structural neuroimaging of language. Meta-analysis of neural correlates of verbal repetition.</p>
+    </div>
+    <div class="collab-card">
+      <div class="collab-name">Dra. Maria Luisa Gorno-Tempini</div>
+      <div class="collab-inst">Memory and Aging Center · UCSF, San Francisco</div>
+      <p class="collab-desc es-text">Análisis automatizado del habla en variantes primarias progresivas de afasia.</p>
+      <p class="collab-desc en-text">Automated speech analysis in primary progressive aphasia variants.</p>
+    </div>
+    <div class="collab-card">
+      <div class="collab-name">Dr. Adolfo García</div>
+      <div class="collab-inst">Universidad de San Andrés · Buenos Aires</div>
+      <p class="collab-desc es-text">Neurocognición del lenguaje, pericia lingüística y correlatos cerebrales del procesamiento fonológico experto.</p>
+      <p class="collab-desc en-text">Language neurocognition, linguistic expertise and brain correlates of expert phonological processing.</p>
+    </div>
+    <div class="collab-card">
+      <div class="collab-name">Red INCLUDE</div>
+      <div class="collab-inst">International Network</div>
+      <p class="collab-desc es-text">Red internacional dedicada a promover la diversidad lingüística en estudios de salud cerebral y el desarrollo de herramientas de evaluación para lenguas infrarrepresentadas.</p>
+      <p class="collab-desc en-text">International network dedicated to promoting linguistic diversity in brain health studies and developing assessment tools for underrepresented languages.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
+<hr style="border:none; border-top: 1px solid #2A2A2A; margin: 0;">
+
+<div class="footer-wrap">
+<footer>
+  <div class="logo-bar">
+    <a href="https://www.uma.es/" target="_blank">
+      <img src="assets/img/logos/logo-universidad.png" alt="Logo Universidad">
+    </a>
+    <a href="https://www.uma.es/facultad-de-psicologia/" target="_blank">
+      <img src="assets/img/logos/logo-facultad.png" alt="Logo Facultad">
+    </a>
+  </div>
+  <div class="footer-left">
+    <div>María José Torres-Prioris · Área de Psicobiología · Universidad de Málaga</div>
+    <div style="margin-top:4px">
+      <a href="https://orcid.org/0000-0003-3795-8151" target="_blank">ORCID</a> ·
+      <a href="https://portaldelainvestigacion.uma.es/investigadores/1104282/detalle" target="_blank">Portal UMA</a> ·
+      <a href="https://afasia.es" target="_blank">afasia.es</a>
+    </div>
+    <div style="margin-top:4px;font-size:12px">© 2026 María José Torres-Prioris · Todos los derechos reservados</div>
+  </div>
+  <div class="footer-right">
+    <a href="index.html" class="es-text">Inicio</a>
+    <a href="index.html" class="en-text">Home</a>
+    <a href="teaching.html" class="es-text">Docencia</a>
+    <a href="teaching.html" class="en-text">Teaching</a>
+  </div>
+</footer>
+</div>
+
+<script>
+// Language
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  localStorage.setItem('lang', lang);
+}
+const saved = localStorage.getItem('lang');
+if (saved) setLang(saved);
+
+// Publication filter
+function filterPubs(type, btn) {
+  document.querySelectorAll('.pub-group').forEach(g => g.classList.remove('visible'));
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pub-' + type).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
