@@ -18,8 +18,9 @@
   --text:     #E8E8E8;
   --muted:    #707070;
   --teal:     #4ECDC4;
-  --teal-dim: rgba(78,205,196,0.12);
-  --teal-mid: rgba(78,205,196,0.25);
+  --teal-rgb: 78,205,196;
+  --teal-dim: rgba(var(--teal-rgb),0.12);
+  --teal-mid: rgba(var(--teal-rgb),0.25);
 }
 
 html { scroll-behavior: smooth; }
@@ -175,7 +176,7 @@ h2 {
   padding: 26px 22px;
   transition: border-color .2s, transform .2s;
 }
-.line-card:hover { border-color: rgba(78,205,196,.4); transform: translateY(-2px); }
+.line-card:hover { border-color: rgba(var(--teal-rgb),.4); transform: translateY(-2px); }
 .line-icon { width: 40px; height: 40px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--teal-dim); color: var(--teal); }
 .line-icon svg { width: 22px; height: 22px; }
 .line-title {
@@ -208,7 +209,7 @@ h2 {
   transition: background .2s, color .2s, border-color .2s;
 }
 .filter-btn:hover { color: var(--text); border-color: var(--muted); }
-.filter-btn.active { background: var(--teal-dim); color: var(--teal); border-color: rgba(78,205,196,.3); }
+.filter-btn.active { background: var(--teal-dim); color: var(--teal); border-color: rgba(var(--teal-rgb),.3); }
 
 /* ── PUBLICATIONS ── */
 .pub-group { display: none; }
@@ -264,7 +265,7 @@ h2 {
   white-space: nowrap;
   transition: background .2s, color .2s;
 }
-.pub-btn-pdf { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(78,205,196,.25); }
+.pub-btn-pdf { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(var(--teal-rgb),.25); }
 .pub-btn-pdf:hover { background: var(--teal); color: #0A0A0A; }
 .pub-btn-doi { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
 .pub-btn-doi:hover { color: var(--text); border-color: var(--muted); }
@@ -310,7 +311,7 @@ h2 {
   border-radius: 3px;
   background: var(--teal-dim);
   color: var(--teal);
-  border: 1px solid rgba(78,205,196,.2);
+  border: 1px solid rgba(var(--teal-rgb),.2);
 }
 .project-date {
   font-family: 'Space Grotesk', sans-serif;
@@ -358,7 +359,7 @@ h2 {
   padding: 22px;
   transition: border-color .2s;
 }
-.collab-card:hover { border-color: rgba(78,205,196,.3); }
+.collab-card:hover { border-color: rgba(var(--teal-rgb),.3); }
 .collab-name {
   font-size: 14px;
   font-weight: 500;
@@ -411,6 +412,14 @@ body.lang-es .en-text { display: none; }
 .sec-nav a { font-size: 12px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 14px 16px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
 .sec-nav a:hover { color: var(--text); border-bottom-color: var(--teal); }
 .section { scroll-margin-top: 120px; }
+/* ── COLOR POR TIPO ── */
+.t-conf   { --teal:#A99BFF; --teal-rgb:169,155,255; --teal-dim:rgba(169,155,255,.12); --teal-mid:rgba(169,155,255,.25); }
+.t-chap   { --teal:#7AA2F7; --teal-rgb:122,162,247; --teal-dim:rgba(122,162,247,.12); --teal-mid:rgba(122,162,247,.25); }
+.t-thesis { --teal:#FF8A73; --teal-rgb:255,138,115; --teal-dim:rgba(255,138,115,.12); --teal-mid:rgba(255,138,115,.25); }
+.filter-btn.t-chap.active, .filter-btn.t-conf.active { background: var(--teal-dim); color: var(--teal); border-color: rgba(var(--teal-rgb),.3); }
+.sec-nav a.t-thesis:hover, .sec-nav a.t-pub:hover { border-bottom-color: var(--teal); }
+.sec-nav a.t-thesis::before, .sec-nav a.t-pub::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--teal); margin-right:7px; vertical-align:1px; }
+
 @media (max-width: 768px) { .sec-nav-inner { padding: 0 24px; } }
 [hidden] { display: none !important; }
 </style>
@@ -453,8 +462,8 @@ body.lang-es .en-text { display: none; }
 <div class="sec-nav">
   <div class="sec-nav-inner">
     <a href="#lines" class="es-text">Líneas</a><a href="#lines" class="en-text">Lines</a>
-    <a href="#publications" class="es-text">Publicaciones</a><a href="#publications" class="en-text">Publications</a>
-    <a href="#theses" class="es-text">Tesis</a><a href="#theses" class="en-text">Theses</a>
+    <a href="#publications" class="es-text t-pub">Publicaciones</a><a href="#publications" class="en-text t-pub">Publications</a>
+    <a href="#theses" class="es-text t-thesis">Tesis</a><a href="#theses" class="en-text t-thesis">Theses</a>
     <a href="#projects" class="es-text">Proyectos</a><a href="#projects" class="en-text">Projects</a>
     <a href="#stays" class="es-text">Estancias</a><a href="#stays" class="en-text">Stays</a>
     <a href="#collaborations" class="es-text">Colaboraciones</a><a href="#collaborations" class="en-text">Collaborations</a>
@@ -507,11 +516,11 @@ body.lang-es .en-text { display: none; }
       <span class="es-text">Artículos (24)</span>
       <span class="en-text">Journal articles (24)</span>
     </button>
-    <button class="filter-btn" onclick="filterPubs('chapters', this)">
+    <button class="filter-btn t-chap" onclick="filterPubs('chapters', this)">
       <span class="es-text">Capítulos de libro (5)</span>
       <span class="en-text">Book chapters (5)</span>
     </button>
-    <button class="filter-btn" onclick="filterPubs('conferences', this)">
+    <button class="filter-btn t-conf" onclick="filterPubs('conferences', this)">
       <span class="es-text">Congresos (selección)</span>
       <span class="en-text">Conferences (selection)</span>
     </button>
@@ -845,7 +854,7 @@ body.lang-es .en-text { display: none; }
   </div>
 
   <!-- CAPÍTULOS -->
-  <div class="pub-group" id="pub-chapters">
+  <div class="pub-group t-chap" id="pub-chapters">
     <div class="pub-list">
 
       <div class="pub-item">
@@ -914,7 +923,7 @@ body.lang-es .en-text { display: none; }
   </div>
 
   <!-- CONGRESOS -->
-  <div class="pub-group" id="pub-conferences">
+  <div class="pub-group t-conf" id="pub-conferences">
     <p style="font-size:13px;color:var(--muted);margin-bottom:24px;font-style:italic" class="es-text">Comunicaciones recientes en congresos nacionales e internacionales. Lista completa disponible bajo petición.</p>
     <p style="font-size:13px;color:var(--muted);margin-bottom:24px;font-style:italic" class="en-text">Recent national and international conference presentations. Full list available on request.</p>
     <div class="pub-list">
@@ -1070,7 +1079,7 @@ body.lang-es .en-text { display: none; }
 
 <!-- ══ TESIS DOCTORALES ═══════════════════════════════════════════════════════ -->
 <!-- Para completar: sustituye cada [ ... ] por el dato real (en las dos versiones, es y en). -->
-<section class="section" id="theses">
+<section class="section t-thesis" id="theses">
   <div class="section-label es-text">Tesis dirigidas</div>
   <div class="section-label en-text">Supervised theses</div>
 
