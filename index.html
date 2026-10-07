@@ -145,6 +145,9 @@ h1 .cursor {
   color: var(--muted);
   margin-bottom: 6px;
 }
+.hero-affil { font-size: 14.5px; line-height: 1.6; color: #B0B0B0; margin: 4px 0 36px; max-width: 560px; }
+.hero-affil a { display: inline-block; margin-top: 6px; color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(78,205,196,.35); padding-bottom: 1px; transition: border-color .2s; }
+.hero-affil a:hover { border-color: var(--teal); }
 .hero-institution {
   font-size: 13px;
   color: var(--muted);
@@ -229,6 +232,7 @@ h1 .cursor {
 .hero-stat-n { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 500; color: var(--teal); line-height: 1; margin-bottom: 4px; }
 .hero-stat-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
 
+[hidden] { display: none !important; }
 /* ── BANNER ── */
 .banner { background: var(--teal-dim); border-top: 1px solid rgba(78,205,196,.2); border-bottom: 1px solid rgba(78,205,196,.2); padding: 14px 48px 10px; }
 .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -327,7 +331,8 @@ footer {
 .footer-right a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .2s; }
 .footer-right a:hover { color: var(--teal); }
 .logo-bar { display: flex; align-items: center; justify-content: center; gap: 32px; }
-.logo-bar img { height: 120px; width: auto; opacity: 0.9; }
+.logo-bar { flex-wrap: wrap; }
+.logo-bar img { max-height: 120px; height: auto; max-width: 100%; width: auto; opacity: 0.9; }
 
 
 
@@ -383,7 +388,12 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
     <h1 id="hero-name">María José Torres-Prioris<span class="cursor"></span></h1>
     <div class="hero-role es-text">Investigadora · Docente Universitaria</div>
     <div class="hero-role en-text">Researcher · University Lecturer</div>
-    <div class="hero-institution">Área de Psicobiología · Facultad de Psicología · Universidad de Málaga</div>
+    <div class="hero-affil">
+      <div class="es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Facultad de Psicología y Logopedia · Universidad de Málaga</div>
+      <div class="en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Faculty of Psychology and Speech Therapy · University of Málaga</div>
+      <a class="es-text" href="https://cimes.es/grupos-investigacion/unidad-neurociencia-cognitiva-afasias/" target="_blank" rel="noopener">Unidad de Neurociencia Cognitiva y Afasia · Centro de Investigaciones Médico-Sanitarias (CIMES)</a>
+      <a class="en-text" href="https://cimes.es/grupos-investigacion/unidad-neurociencia-cognitiva-afasias/" target="_blank" rel="noopener">Cognitive Neuroscience and Aphasia Unit · Medical-Health Research Centre (CIMES)</a>
+    </div>
     <p class="hero-bio es-text">
       Soy Profesora Ayudante Doctora en la Universidad de Málaga, donde investigo los mecanismos cognitivos y cerebrales del lenguaje, la afasia post-ictus y la plasticidad cerebral. Me doctoré en Biomedicina (Cum Laude, Premio Extraordinario, 2019) y he realizado más de 24 meses de estancias internacionales en centros de referencia. He publicado 24 artículos en revistas de alto impacto (<em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em>, <em>Scientific Reports</em>) y 5 capítulos de libro. Soy Editora Invitada en <em>Brain and Language</em> y miembro de la red internacional INCLUDE. Compagino investigación, práctica clínica y docencia universitaria.
     </p>
@@ -415,56 +425,15 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
 </section>
 
 
-<!-- ══ BANNER ROTATORIO ══════════════════════════════════════════════════════ -->
-<div class="banner">
+<!-- ══ BANNER ROTATORIO ══════════════════════════════════════════════════════
+     Se genera solo a partir de research.html: cada elemento con data-news="AAAA-MM-DD"
+     (fecha en que se sube) aparece aquí durante 4 meses. Los más recientes primero, máximo 5. -->
+<div class="banner" id="banner" hidden>
   <div class="banner-inner">
     <div class="banner-dot"></div>
-    <div class="banner-slider">
-
-      <div class="banner-slide active">
-        <p class="banner-text">
-          <span class="banner-tag tag-pub es-text">Nueva publicación</span>
-          <span class="banner-tag tag-pub en-text">New publication</span>
-          <span class="es-text"> — Mapping the neural patterns of verbal repetition. </span>
-          <span class="en-text"> — Mapping the neural patterns of verbal repetition. </span>
-        </p>
-        <a href="research.html#publications" class="banner-link es-text">Ver publicación →</a>
-        <a href="research.html#publications" class="banner-link en-text">View paper →</a>
-        <a href="papers/Awana et al. 2026.pdf" download class="banner-link">PDF ↓</a>
-      </div>
-
-      <div class="banner-slide">
-        <p class="banner-text">
-          <span class="banner-tag tag-conf es-text">Congreso</span>
-          <span class="banner-tag tag-conf en-text">Conference</span>
-          <span class="es-text"> — SEPEX 2026, Valencia. Right Anodal tDCS in Chronic Aphasia: Effects on Attentional Networks and Language
-Recovery. </span>
-          <span class="en-text"> —  SEPEX 2026, Valencia. Right Anodal tDCS in Chronic Aphasia: Effects on Attentional Networks and Language
-Recovery. </span>
-        </p>
-        <a href="research.html#publications" class="banner-link es-text">Ver más →</a>
-        <a href="research.html#publications" class="banner-link en-text">See more →</a>
-        <a href="publicaciones/C59.pdf" download class="banner-link">PDF ↓</a>
-
-      </div>
-
-      <div class="banner-slide">
-        <p class="banner-text">
-          <span class="banner-tag tag-proj es-text">Proyecto en evaluación</span>
-          <span class="banner-tag tag-proj en-text">Project under evaluation</span>
-          <span class="es-text"> — Neuroplasticidad y rehabilitación de la afasia post-ictus. </span>
-          <span class="en-text"> — Neuroplasticity and post-stroke aphasia rehabilitation. </span>
-        </p>
-        <a href="https://afasia.es" target="_blank" class="banner-link">afasia.es →</a>
-      </div>
-
-    </div>
+    <div class="banner-slider" id="banner-slider"></div>
   </div>
-  <div class="banner-dots">
-    <button class="banner-dot-btn active" onclick="goToSlide(0)"></button>
-    <button class="banner-dot-btn" onclick="goToSlide(1)"></button>
-    <button class="banner-dot-btn" onclick="goToSlide(2)"></button>
-  </div>
+  <div class="banner-dots" id="banner-dots"></div>
 </div>
 
 <!-- ══ PUBLICACIONES RECIENTES ═══════════════════════════════════════════════ -->
@@ -475,14 +444,25 @@ Recovery. </span>
     <div class="pub-item">
       <div class="pub-year">2026</div>
       <div>
+        <div class="pub-title">Visual attention deficits in post-stroke aphasia: occurrence, impairment patterns, and response to cholinergic modulation</div>
+        <div class="pub-authors">Berthier M.L., Gómez-Pérez Á.Y., Dávila G., <em>Torres-Prioris M.J.</em>, Birba A., García A.M.</div>
+        <div class="pub-journal">Aphasiology (online 29 Jul 2026)</div>
+      </div>
+      <div class="pub-actions">
+        <a href="https://doi.org/10.1080/02687038.2026.2708827" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
         <div class="pub-title">Mapping the neural patterns of verbal repetition: an activation likelihood estimation meta-analysis</div>
-        <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> & López-Barroso* (*Equal contribution. Corresponding authors)</div>
+        <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> & López-Barroso D.* (*Equal contribution. Corresponding authors)</div>
         <div class="pub-journal">Brain Structure and Function, 231, 75</div>
         <span style="font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:rgba(76,175,130,.15);color:#4CAF82;border:1px solid rgba(76,175,130,.3);border-radius:3px;padding:2px 7px;margin-left:8px;">NEW</span>
         
       </div>
       <div class="pub-actions">
-        <a href="papers/J24.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+        <a href="papers/Awana et al. 2026.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
         <a href="https://doi.org/10.1007/s00429-026-03119-3" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
       </div>
     </div>
@@ -621,32 +601,59 @@ function type() {
   }
 }
 setTimeout(type, 300);
-// Banner rotatorio
-// Banner rotatorio con puntos
-const slides = document.querySelectorAll('.banner-slide');
-const dots = document.querySelectorAll('.banner-dot-btn');
-let current = 0;
-let timer;
-
-function goToSlide(n) {
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = n;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-  resetTimer();
-}
-
-function nextSlide() {
-  goToSlide((current + 1) % slides.length);
-}
-
-function resetTimer() {
-  clearInterval(timer);
-  timer = setInterval(nextSlide, 8000);
-}
-
-resetTimer();
+// Banner rotatorio: novedades de los últimos 4 meses, leídas de research.html
+(function () {
+  const MAX = 5;
+  const LABELS = {
+    pub:    ['tag-pub',  'Nueva publicación', 'New publication', 'research.html#publications'],
+    conf:   ['tag-conf', 'Congreso',          'Conference',      'research.html#publications'],
+    thesis: ['tag-proj', 'Tesis defendida',   'Thesis defended', 'research.html#theses']
+  };
+  const esc = t => t.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  fetch('research.html').then(r => r.text()).then(html => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const limit = new Date(); limit.setMonth(limit.getMonth() - 4);
+    const items = [...doc.querySelectorAll('[data-news]')]
+      .map((el, idx) => ({ el, idx, date: new Date(el.dataset.news + 'T00:00:00') }))
+      .filter(x => !isNaN(x.date) && x.date >= limit && LABELS[x.el.dataset.kind])
+      .sort((a, b) => b.date - a.date || a.idx - b.idx)
+      .slice(0, MAX);
+    if (!items.length) return;
+    const slider = document.getElementById('banner-slider');
+    const dotsBox = document.getElementById('banner-dots');
+    items.forEach(({ el }, n) => {
+      const [cls, es, en, href] = LABELS[el.dataset.kind];
+      const title = (el.querySelector('.pub-title, .project-title.es-text') || {}).textContent || '';
+      const venue = (el.querySelector('.pub-tag') || {}).textContent || '';
+      const pdf = el.querySelector('a.pub-btn-pdf');
+      const text = esc((venue ? venue + '. ' : '') + title.trim());
+      slider.insertAdjacentHTML('beforeend',
+        `<div class="banner-slide${n ? '' : ' active'}">
+           <p class="banner-text">
+             <span class="banner-tag ${cls} es-text">${es}</span><span class="banner-tag ${cls} en-text">${en}</span>
+             <span> — ${text}</span>
+           </p>
+           <a href="${href}" class="banner-link es-text">Ver más →</a><a href="${href}" class="banner-link en-text">See more →</a>
+           ${pdf ? `<a href="${esc(pdf.getAttribute('href'))}" download class="banner-link">PDF ↓</a>` : ''}
+         </div>`);
+      if (items.length > 1)
+        dotsBox.insertAdjacentHTML('beforeend', `<button class="banner-dot-btn${n ? '' : ' active'}" aria-label="${n + 1}"></button>`);
+    });
+    document.getElementById('banner').hidden = false;
+    const slides = slider.querySelectorAll('.banner-slide');
+    const dots = dotsBox.querySelectorAll('.banner-dot-btn');
+    if (slides.length < 2) return;
+    let current = 0, timer;
+    const goToSlide = n => {
+      slides[current].classList.remove('active'); dots[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active'); dots[current].classList.add('active');
+      clearInterval(timer); timer = setInterval(() => goToSlide((current + 1) % slides.length), 8000);
+    };
+    dots.forEach((d, n) => d.addEventListener('click', () => goToSlide(n)));
+    goToSlide(0);
+  }).catch(() => {});
+})();
 </script>
 </body>
 </html>

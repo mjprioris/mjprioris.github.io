@@ -387,7 +387,8 @@ footer {
 .footer-right a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .2s; }
 .footer-right a:hover { color: var(--teal); }
 .logo-bar { display: flex; align-items: center; justify-content: center; gap: 32px; }
-.logo-bar img { height: 120px; width: auto; opacity: 0.9; }
+.logo-bar { flex-wrap: wrap; }
+.logo-bar img { max-height: 120px; height: auto; max-width: 100%; width: auto; opacity: 0.9; }
 
 /* ── LANG ── */
 body.lang-en .es-text { display: none; }
@@ -414,11 +415,15 @@ body.lang-es .en-text { display: none; }
 .section { scroll-margin-top: 120px; }
 /* ── COLOR POR TIPO ── */
 .t-conf   { --teal:#A99BFF; --teal-rgb:169,155,255; --teal-dim:rgba(169,155,255,.12); --teal-mid:rgba(169,155,255,.25); }
+.t-lines  { --teal:#8FD18A; --teal-rgb:143,209,138; --teal-dim:rgba(143,209,138,.12); --teal-mid:rgba(143,209,138,.25); }
+.t-proj   { --teal:#F28FB8; --teal-rgb:242,143,184; --teal-dim:rgba(242,143,184,.12); --teal-mid:rgba(242,143,184,.25); }
+.t-stays  { --teal:#E8D06A; --teal-rgb:232,208,106; --teal-dim:rgba(232,208,106,.12); --teal-mid:rgba(232,208,106,.25); }
+.t-collab { --teal:#7FD4F0; --teal-rgb:127,212,240; --teal-dim:rgba(127,212,240,.12); --teal-mid:rgba(127,212,240,.25); }
 .t-chap   { --teal:#7AA2F7; --teal-rgb:122,162,247; --teal-dim:rgba(122,162,247,.12); --teal-mid:rgba(122,162,247,.25); }
 .t-thesis { --teal:#FF8A73; --teal-rgb:255,138,115; --teal-dim:rgba(255,138,115,.12); --teal-mid:rgba(255,138,115,.25); }
 .filter-btn.t-chap.active, .filter-btn.t-conf.active { background: var(--teal-dim); color: var(--teal); border-color: rgba(var(--teal-rgb),.3); }
-.sec-nav a.t-thesis:hover, .sec-nav a.t-pub:hover { border-bottom-color: var(--teal); }
-.sec-nav a.t-thesis::before, .sec-nav a.t-pub::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--teal); margin-right:7px; vertical-align:1px; }
+.sec-nav a[class*="t-"]:hover { border-bottom-color: var(--teal); }
+.sec-nav a[class*="t-"]::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--teal); margin-right:7px; vertical-align:1px; }
 
 @media (max-width: 768px) { .sec-nav-inner { padding: 0 24px; } }
 [hidden] { display: none !important; }
@@ -428,7 +433,7 @@ body.lang-es .en-text { display: none; }
 
 <!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
 <nav>
-  <a href="index.html" class="nav-logo">MJT<span>.</span></a>
+  <a href="index.html" class="nav-logo">MJTP<span>.</span></a>
   <ul class="nav-links">
     <li><a href="research.html" class="active es-text">Investigación</a><a href="research.html" class="active en-text">Research</a></li>
     <li><a href="teaching.html" class="es-text">Docencia</a><a href="teaching.html" class="en-text">Teaching</a></li>
@@ -461,17 +466,17 @@ body.lang-es .en-text { display: none; }
 <!-- ══ SEC NAV ════════════════════════════════════════════════════════════════ -->
 <div class="sec-nav">
   <div class="sec-nav-inner">
-    <a href="#lines" class="es-text">Líneas</a><a href="#lines" class="en-text">Lines</a>
+    <a href="#lines" class="es-text t-lines">Líneas</a><a href="#lines" class="en-text t-lines">Lines</a>
     <a href="#publications" class="es-text t-pub">Publicaciones</a><a href="#publications" class="en-text t-pub">Publications</a>
     <a href="#theses" class="es-text t-thesis">Tesis</a><a href="#theses" class="en-text t-thesis">Theses</a>
-    <a href="#projects" class="es-text">Proyectos</a><a href="#projects" class="en-text">Projects</a>
-    <a href="#stays" class="es-text">Estancias</a><a href="#stays" class="en-text">Stays</a>
-    <a href="#collaborations" class="es-text">Colaboraciones</a><a href="#collaborations" class="en-text">Collaborations</a>
+    <a href="#projects" class="es-text t-proj">Proyectos</a><a href="#projects" class="en-text t-proj">Projects</a>
+    <a href="#stays" class="es-text t-stays">Estancias</a><a href="#stays" class="en-text t-stays">Stays</a>
+    <a href="#collaborations" class="es-text t-collab">Colaboraciones</a><a href="#collaborations" class="en-text t-collab">Collaborations</a>
   </div>
 </div>
 
 <!-- ══ LÍNEAS DE INVESTIGACIÓN ═══════════════════════════════════════════════ -->
-<section class="section" id="lines">
+<section class="section t-lines" id="lines">
   <div class="section-label es-text">Líneas de investigación</div>
   <div class="section-label en-text">Research lines</div>
   <div class="lines-grid">
@@ -507,7 +512,7 @@ body.lang-es .en-text { display: none; }
 </section>
 
 <!-- ══ PUBLICACIONES ══════════════════════════════════════════════════════════ -->
-<section class="section" id="publications">
+<section class="section t-pub" id="publications">
   <div class="section-label es-text">Publicaciones</div>
   <div class="section-label en-text">Publications</div>
 
@@ -530,7 +535,7 @@ body.lang-es .en-text { display: none; }
   <div class="pub-group visible" id="pub-journals">
     <div class="pub-list">
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="pub">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-title">Visual attention deficits in post-stroke aphasia: occurrence, impairment patterns, and response to cholinergic modulation</div>
@@ -547,7 +552,7 @@ body.lang-es .en-text { display: none; }
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-title">Mapping the neural patterns of verbal repetition: an activation likelihood estimation meta-analysis</div>
-          <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> & López-Barroso* (*Equal contribution. Corresponding authors) </div>
+          <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> & López-Barroso D.* (*Equal contribution. Corresponding authors) </div>
           <div class="pub-journal">Brain Structure and Function, 231, 75</div>
           <span style="font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:rgba(76,175,130,.15);color:#4CAF82;border:1px solid rgba(76,175,130,.3);border-radius:3px;padding:2px 7px;margin-left:8px;">NEW</span>
         </div>
@@ -640,7 +645,7 @@ body.lang-es .en-text { display: none; }
         <div>
           <div class="pub-title">Automated detection of speech timing alterations in autopsy-confirmed non-fluent/agrammatic variant primary progressive aphasia</div>
           <div class="pub-authors">García A.M., Welch A.E., ..., <em>Torres-Prioris M.J.</em>, ..., Gorno-Tempini M.L.</div>
-          <div class="pub-journal">Neurology</div>
+          <div class="pub-journal">Neurology, 99(5), e500–e511</div>
         </div>
         <div class="pub-actions">
           <a href="papers/J17.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
@@ -662,11 +667,11 @@ body.lang-es .en-text { display: none; }
       </div>
 
       <div class="pub-item">
-        <div class="pub-year">2021</div>
+        <div class="pub-year">2022</div>
         <div>
           <div class="pub-title">Controlling the past, owning the present, and future: cholinergic modulation decreases semantic perseverations in a person with post-stroke aphasia</div>
           <div class="pub-authors">Berthier M.L., Santana-Moreno D., ..., <em>Torres-Prioris M.J.</em></div>
-          <div class="pub-journal">Aphasiology, 1–19</div>
+          <div class="pub-journal">Aphasiology, 36(11), 1293–1311</div>
         </div>
         <div class="pub-actions">
           <a href="papers/J15.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
@@ -849,7 +854,7 @@ body.lang-es .en-text { display: none; }
       <strong>Repositorio:</strong> los PDFs están disponibles en la carpeta <code>papers/</code> de este repositorio . Si no puedes acceder a algún artículo, escríbeme a mjprioris@uma.es.
     </div>
     <div class="repo-note en-text">
-      <strong>Repository:</strong> PDFs are available in the <code>papers/</code> folder of this repository (J01.pdf – J24.pdf). If you cannot access a paper, contact me via the <a href="contact.html">contact</a> page.
+      <strong>Repository:</strong> PDFs are available in the <code>papers/</code> folder of this repository. If you cannot access a paper, email me at mjprioris@uma.es.
     </div>
   </div>
 
@@ -928,7 +933,7 @@ body.lang-es .en-text { display: none; }
     <p style="font-size:13px;color:var(--muted);margin-bottom:24px;font-style:italic" class="en-text">Recent national and international conference presentations. Full list available on request.</p>
     <div class="pub-list">
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Póster · Academy of Aphasia 2026</div>
@@ -941,7 +946,7 @@ body.lang-es .en-text { display: none; }
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Póster · Academy of Aphasia 2026</div>
@@ -954,7 +959,7 @@ body.lang-es .en-text { display: none; }
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Comunicación oral · SANP 2026</div>
@@ -966,7 +971,7 @@ body.lang-es .en-text { display: none; }
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Póster A14 · SNL 2026</div>
@@ -979,7 +984,7 @@ body.lang-es .en-text { display: none; }
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Póster B85 · SNL 2026</div>
@@ -992,7 +997,7 @@ body.lang-es .en-text { display: none; }
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-news="2026-10-07" data-kind="conf">
         <div class="pub-year">2026</div>
         <div>
           <div class="pub-tag">Póster · SEPEX 2026</div>
@@ -1083,7 +1088,7 @@ body.lang-es .en-text { display: none; }
   <div class="section-label es-text">Tesis dirigidas</div>
   <div class="section-label en-text">Supervised theses</div>
 
-  <div class="project-item">
+  <div class="project-item" data-news="2026-03-15" data-kind="thesis">
     <div>
       <div class="project-title es-text">____________</div>
       <div class="project-title en-text">____________</div>
@@ -1121,7 +1126,7 @@ body.lang-es .en-text { display: none; }
 </section>
 
 <!-- ══ PROYECTOS ══════════════════════════════════════════════════════════════ -->
-<section class="section" id="projects">
+<section class="section t-proj" id="projects">
   <div class="section-label es-text">Proyectos de investigación</div>
   <div class="section-label en-text">Research projects</div>
 
@@ -1162,7 +1167,7 @@ body.lang-es .en-text { display: none; }
 </section>
 
 <!-- ══ ESTANCIAS ══════════════════════════════════════════════════════════════ -->
-<section class="section" id="stays">
+<section class="section t-stays" id="stays">
   <div class="section-label es-text">Estancias internacionales</div>
   <div class="section-label en-text">International research stays</div>
 
@@ -1204,7 +1209,7 @@ body.lang-es .en-text { display: none; }
 </section>
 
 <!-- ══ COLABORACIONES ═════════════════════════════════════════════════════════ -->
-<section class="section" id="collaborations">
+<section class="section t-collab" id="collaborations">
   <div class="section-label es-text">Colaboraciones internacionales</div>
   <div class="section-label en-text">International collaborations</div>
 
