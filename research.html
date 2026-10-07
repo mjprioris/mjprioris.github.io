@@ -406,6 +406,12 @@ body.lang-es .en-text { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+.sec-nav { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 60px; z-index: 90; }
+.sec-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; display: flex; overflow-x: auto; }
+.sec-nav a { font-size: 12px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 14px 16px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.sec-nav a:hover { color: var(--text); border-bottom-color: var(--teal); }
+.section { scroll-margin-top: 120px; }
+@media (max-width: 768px) { .sec-nav-inner { padding: 0 24px; } }
 </style>
 </head>
 <body class="lang-es">
@@ -440,6 +446,18 @@ body.lang-es .en-text { display: none; }
     I investigate the cognitive and neural mechanisms of language, post-stroke aphasia and brain plasticity. My work addresses the characterisation of aphasic profiles, connected speech and spontaneous discourse analysis, and the plasticity mechanisms underlying functional recovery after acquired brain injury. I also study the efficacy of combined interventions integrating <strong>cholinergic modulation</strong>, <strong>intensive language therapy</strong> and <strong>transcranial direct current stimulation (tDCS)</strong>. I have published 24 articles in high-impact international journals including <em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em> and <em>Scientific Reports</em>. I am a Guest Editor at <em>Brain and Language</em> (Elsevier, Q1) and a member of the international <strong>INCLUDE</strong> network, dedicated to promoting linguistic diversity in neuroscientific research.
   </p>
 </div>
+</div>
+
+<!-- ══ SEC NAV ════════════════════════════════════════════════════════════════ -->
+<div class="sec-nav">
+  <div class="sec-nav-inner">
+    <a href="#lines" class="es-text">Líneas</a><a href="#lines" class="en-text">Lines</a>
+    <a href="#publications" class="es-text">Publicaciones</a><a href="#publications" class="en-text">Publications</a>
+    <a href="#theses" class="es-text">Tesis</a><a href="#theses" class="en-text">Theses</a>
+    <a href="#projects" class="es-text">Proyectos</a><a href="#projects" class="en-text">Projects</a>
+    <a href="#stays" class="es-text">Estancias</a><a href="#stays" class="en-text">Stays</a>
+    <a href="#collaborations" class="es-text">Colaboraciones</a><a href="#collaborations" class="en-text">Collaborations</a>
+  </div>
 </div>
 
 <!-- ══ LÍNEAS DE INVESTIGACIÓN ═══════════════════════════════════════════════ -->
@@ -968,6 +986,49 @@ body.lang-es .en-text { display: none; }
   </div>
 </section>
 
+<!-- ══ TESIS DOCTORALES ═══════════════════════════════════════════════════════ -->
+<!-- Para completar: sustituye cada [ ... ] por el dato real (en las dos versiones, es y en). -->
+<section class="section" id="theses">
+  <div class="section-label es-text">Tesis dirigidas</div>
+  <div class="section-label en-text">Supervised theses</div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title es-text">____________</div>
+      <div class="project-title en-text">____________</div>
+      <div class="project-desc es-text">Doctorando/a: ____________. Codirigida con ____________. Sobresaliente <em>cum laude</em>, Mención Internacional.</div>
+      <div class="project-desc en-text">PhD candidate: ____________. Co-supervised with ____________. Outstanding <em>cum laude</em>, International Mention.</div>
+      <span class="project-role es-text">Defendida</span>
+      <span class="project-role en-text">Defended</span>
+    </div>
+    <div class="project-date">03/2026</div>
+  </div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title es-text">____________</div>
+      <div class="project-title en-text">____________</div>
+      <div class="project-desc es-text">Doctorando/a: ____________. Codirigida con ____________. Defensa prevista a principios de 2027.</div>
+      <div class="project-desc en-text">PhD candidate: ____________. Co-supervised with ____________. Defence expected in early 2027.</div>
+      <span class="project-role es-text">En curso</span>
+      <span class="project-role en-text">In progress</span>
+    </div>
+    <div class="project-date"><span class="es-text">Defensa 2027</span><span class="en-text">Defence 2027</span></div>
+  </div>
+
+  <div class="project-item">
+    <div>
+      <div class="project-title es-text">____________</div>
+      <div class="project-title en-text">____________</div>
+      <div class="project-desc es-text">Doctorando/a: ____________. Codirigida con ____________.</div>
+      <div class="project-desc en-text">PhD candidate: ____________. Co-supervised with ____________.</div>
+      <span class="project-role es-text">En curso</span>
+      <span class="project-role en-text">In progress</span>
+    </div>
+    <div class="project-date"><span class="es-text">2.º año</span><span class="en-text">2nd year</span></div>
+  </div>
+</section>
+
 <!-- ══ PROYECTOS ══════════════════════════════════════════════════════════════ -->
 <section class="section" id="projects">
   <div class="section-label es-text">Proyectos de investigación</div>
@@ -1006,49 +1067,6 @@ body.lang-es .en-text { display: none; }
       <span class="project-role en-text">Team member</span>
     </div>
     <div class="project-date">2018 – 2020</div>
-  </div>
-</section>
-
-<!-- ══ TESIS DOCTORALES ═══════════════════════════════════════════════════════ -->
-<!-- Para completar: sustituye cada [ ... ] por el dato real (en las dos versiones, es y en). -->
-<section class="section" id="theses">
-  <div class="section-label es-text">Tesis doctorales codirigidas</div>
-  <div class="section-label en-text">Co-supervised doctoral theses</div>
-
-  <div class="project-item">
-    <div>
-      <div class="project-title es-text">[Título de la tesis]</div>
-      <div class="project-title en-text">[Thesis title]</div>
-      <div class="project-desc es-text">Doctorando/a: [Nombre]. Codirección con [Nombre]. Sobresaliente <em>cum laude</em>, Mención Internacional.</div>
-      <div class="project-desc en-text">PhD candidate: [Name]. Co-supervised with [Name]. Outstanding <em>cum laude</em>, International Mention.</div>
-      <span class="project-role es-text">Defendida</span>
-      <span class="project-role en-text">Defended</span>
-    </div>
-    <div class="project-date">03/2026</div>
-  </div>
-
-  <div class="project-item">
-    <div>
-      <div class="project-title es-text">[Título de la tesis]</div>
-      <div class="project-title en-text">[Thesis title]</div>
-      <div class="project-desc es-text">Doctorando/a: [Nombre]. Codirección con [Nombre]. Defensa prevista a principios de 2027.</div>
-      <div class="project-desc en-text">PhD candidate: [Name]. Co-supervised with [Name]. Defence expected in early 2027.</div>
-      <span class="project-role es-text">En curso</span>
-      <span class="project-role en-text">In progress</span>
-    </div>
-    <div class="project-date"><span class="es-text">Defensa 2027</span><span class="en-text">Defence 2027</span></div>
-  </div>
-
-  <div class="project-item">
-    <div>
-      <div class="project-title es-text">[Título de la tesis]</div>
-      <div class="project-title en-text">[Thesis title]</div>
-      <div class="project-desc es-text">Doctorando/a: [Nombre]. Codirección con [Nombre].</div>
-      <div class="project-desc en-text">PhD candidate: [Name]. Co-supervised with [Name].</div>
-      <span class="project-role es-text">En curso</span>
-      <span class="project-role en-text">In progress</span>
-    </div>
-    <div class="project-date"><span class="es-text">2.º año</span><span class="en-text">2nd year</span></div>
   </div>
 </section>
 
