@@ -148,6 +148,9 @@ h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 400
 
 /* ── COLOR POR SECCIÓN ── */
 .t-res { --teal:#F2B84B; --teal-rgb:242,184,75; --teal-dim:rgba(242,184,75,.12); --teal-mid:rgba(242,184,75,.25); }
+.t-asig { --teal:#7AA2F7; --teal-rgb:122,162,247; --teal-dim:rgba(122,162,247,.12); --teal-mid:rgba(122,162,247,.25); }
+.group-label { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; color: var(--teal); margin: 28px 0 4px; }
+.section-label + .group-label, .section-label + .group-label + .group-label { margin-top: 0; }
 .t-inn { --teal:#8FD18A; --teal-rgb:143,209,138; --teal-dim:rgba(143,209,138,.12); --teal-mid:rgba(143,209,138,.25); }
 .t-form { --teal:#A99BFF; --teal-rgb:169,155,255; --teal-dim:rgba(169,155,255,.12); --teal-mid:rgba(169,155,255,.25); }
 .t-coord { --teal:#F28FB8; --teal-rgb:242,143,184; --teal-dim:rgba(242,143,184,.12); --teal-mid:rgba(242,143,184,.25); }
@@ -259,6 +262,7 @@ body.lang-es .en-text { display: none; }
 <div class="sec-nav">
   <div class="sec-nav-inner">
     <a href="#resumen" class="es-text t-res">Resumen</a><a href="#resumen" class="en-text t-res">Summary</a>
+    <a href="#asignaturas" class="es-text t-asig">Asignaturas</a><a href="#asignaturas" class="en-text t-asig">Courses</a>
     <a href="#innovacion" class="es-text t-inn">Innovación</a><a href="#innovacion" class="en-text t-inn">Innovation</a>
     <a href="#formacion" class="es-text t-form">Formación</a><a href="#formacion" class="en-text t-form">Training</a>
     <a href="#coordinacion" class="es-text t-coord">Coordinación</a><a href="#coordinacion" class="en-text t-coord">Coordination</a>
@@ -277,6 +281,106 @@ body.lang-es .en-text { display: none; }
   </div>
 </div>
 
+<!-- ══ DOCENCIA IMPARTIDA ══════════════════════════════════════════════════════
+     Para actualizar: cambiar el curso en la columna de la derecha. -->
+<div class="section t-asig" id="asignaturas">
+  <div class="section-label">
+    <span class="es-text">Docencia impartida</span>
+    <span class="en-text">Courses taught</span>
+  </div>
+
+  <div class="group-label es-text">Grado en Psicología · Universidad de Málaga</div>
+  <div class="group-label en-text">BSc in Psychology · University of Málaga</div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Neuropsicología</div>
+      <div class="entry-title en-text">Neuropsychology</div>
+      <div class="entry-sub es-text">Coordinadora (2026/27)</div>
+      <div class="entry-sub en-text">Course coordinator (2026/27)</div>
+    </div>
+    <div class="entry-date">2016/17 – 2019/20 · 2026/27</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Fundamentos de Psicobiología I</div>
+      <div class="entry-title en-text">Fundamentals of Psychobiology I</div>
+    </div>
+    <div class="entry-date">2020/21</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Fundamentos de Psicobiología II</div>
+      <div class="entry-title en-text">Fundamentals of Psychobiology II</div>
+    </div>
+    <div class="entry-date">2021/22 · 2024/25</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Prácticas Externas (Itinerario de Psicología Clínica)</div>
+      <div class="entry-title en-text">External Placements (Clinical Psychology track)</div>
+    </div>
+    <div class="entry-date">2024/25 – 2025/26</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Trabajo Fin de Grado</div>
+      <div class="entry-title en-text">Bachelor's Thesis</div>
+      <div class="entry-sub es-text">Dirección de TFG (también en el Grado en Logopedia)</div>
+      <div class="entry-sub en-text">Supervision (also in the BSc in Speech Therapy)</div>
+    </div>
+    <div class="entry-date">2018/19 – 2025/26</div>
+  </div>
+  <div class="group-label es-text">Grado en Logopedia · Universidad de Málaga</div>
+  <div class="group-label en-text">BSc in Speech Therapy · University of Málaga</div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Neuropsicología</div>
+      <div class="entry-title en-text">Neuropsychology</div>
+      <div class="entry-sub es-text">Coordinadora</div>
+      <div class="entry-sub en-text">Course coordinator</div>
+    </div>
+    <div class="entry-date">2025/26 – 2026/27</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje I</div>
+      <div class="entry-title en-text">Developmental Psychology and Language Acquisition I</div>
+      <div class="entry-sub es-text">Coordinadora · Dpto. de Psicología Evolutiva y de la Educación</div>
+      <div class="entry-sub en-text">Course coordinator · Dept. of Developmental and Educational Psychology</div>
+    </div>
+    <div class="entry-date">2023/24 – 2024/25</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje II</div>
+      <div class="entry-title en-text">Developmental Psychology and Language Acquisition II</div>
+      <div class="entry-sub es-text">Coordinadora (2023/24) · Dpto. de Psicología Evolutiva y de la Educación</div>
+      <div class="entry-sub en-text">Course coordinator (2023/24) · Dept. of Developmental and Educational Psychology</div>
+    </div>
+    <div class="entry-date">2023/24 – 2024/25</div>
+  </div>
+  <div class="group-label es-text">Posgrado y títulos propios</div>
+  <div class="group-label en-text">Postgraduate and university-specific degrees</div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Neuroimagen · Máster Oficial en Investigación Logopédica en Trastornos Degenerativos y Daño Cerebral</div>
+      <div class="entry-title en-text">Neuroimaging · Official Master's in Speech Therapy Research on Degenerative Disorders and Brain Damage</div>
+      <div class="entry-sub es-text">Universidad de Granada</div>
+      <div class="entry-sub en-text">University of Granada</div>
+    </div>
+    <div class="entry-date">2019/20 – 2020/21</div>
+  </div>
+  <div class="entry">
+    <div>
+      <div class="entry-title es-text">Experto Universitario en Neuropsicología Clínica Infantil</div>
+      <div class="entry-title en-text">University Expert in Child Clinical Neuropsychology</div>
+      <div class="entry-sub es-text">Título propio · Universidad de Málaga</div>
+      <div class="entry-sub en-text">University-specific degree · University of Málaga</div>
+    </div>
+    <div class="entry-date">2016/17</div>
+  </div>
+</div>
+
 <!-- ══ INNOVACIÓN ═════════════════════════════════════════════════════════════ -->
 <div class="section t-inn" id="innovacion">
   <div class="section-label">
@@ -287,8 +391,8 @@ body.lang-es .en-text { display: none; }
   <div class="proyecto-card" data-news="2026-10-08" data-kind="proj">
     <h3 class="es-text">Proyecto de Innovación Educativa INNOVA26 «Transferencia de la Evidencia Científica a la Práctica Profesional»</h3>
     <h3 class="en-text">Educational Innovation Project INNOVA26 «Transferring Scientific Evidence to Professional Practice»</h3>
-    <p class="es-text">Concedido en la <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">convocatoria INNOVA26</a> de la Universidad de Málaga.</p>
-    <p class="en-text">Awarded in the University of Málaga <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">INNOVA26 call</a>.</p>
+    <p class="es-text">Miembro del equipo. Concedido en la <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">convocatoria INNOVA26</a> de la Universidad de Málaga.</p>
+    <p class="en-text">Team member. Awarded in the University of Málaga <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">INNOVA26 call</a>.</p>
     <div class="pdate">2026 – 2028</div>
   </div>
 
@@ -442,7 +546,7 @@ body.lang-es .en-text { display: none; }
       <span class="com-title" data-news-title>Technology-enhanced learning in undergraduate neuroscience education: tractography-based virtual dissection in psychology</span>
       <span class="com-type oral es-text">Preprint</span>
       <span class="com-type oral en-text">Preprint</span>
-      <div class="com-meta">Preprint · 2026</div>
+      <div class="com-meta">López-Barroso D., Torres-Prioris M.J., et al. · Preprint · 2026</div>
       <div class="com-actions">
         <a href="https://doi.org/10.64898/2026.09.21.753122" target="_blank" rel="noopener" class="com-btn">DOI</a>
         <a href="https://doi.org/10.5281/zenodo.22129828" target="_blank" rel="noopener" class="com-btn"><span class="es-text">Datos (Zenodo)</span><span class="en-text">Data (Zenodo)</span></a>
