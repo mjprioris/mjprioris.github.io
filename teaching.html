@@ -84,7 +84,7 @@ body.lang-en .lang-btn[data-lang="en"] { background: var(--teal); color: #0A0A0A
 .btn-download svg { width: 14px; height: 14px; }
 
 /* ── STATS ── */
-.stats-bar { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+.stats-bar { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
 .stat { background: var(--surface); padding: 20px 16px; text-align: center; }
 .stat-n { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 500; color: var(--teal); line-height: 1; margin-bottom: 5px; }
 .stat-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
@@ -145,6 +145,23 @@ h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 400
 .intl-text { font-size: 14px; color: #B0B0B0; line-height: 1.6; }
 .intl-text strong { color: var(--text); }
 
+
+/* ── COLOR POR SECCIÓN ── */
+.t-res { --teal:#F2B84B; --teal-rgb:242,184,75; --teal-dim:rgba(242,184,75,.12); --teal-mid:rgba(242,184,75,.25); }
+.t-inn { --teal:#8FD18A; --teal-rgb:143,209,138; --teal-dim:rgba(143,209,138,.12); --teal-mid:rgba(143,209,138,.25); }
+.t-form { --teal:#A99BFF; --teal-rgb:169,155,255; --teal-dim:rgba(169,155,255,.12); --teal-mid:rgba(169,155,255,.25); }
+.t-coord { --teal:#F28FB8; --teal-rgb:242,143,184; --teal-dim:rgba(242,143,184,.12); --teal-mid:rgba(242,143,184,.25); }
+.t-pubd { --teal:#4ECDC4; --teal-rgb:78,205,196; --teal-dim:rgba(78,205,196,.12); --teal-mid:rgba(78,205,196,.25); }
+.t-intl { --teal:#7FD4F0; --teal-rgb:127,212,240; --teal-dim:rgba(127,212,240,.12); --teal-mid:rgba(127,212,240,.25); }
+.sec-nav a[class*="t-"]:hover { border-bottom-color: var(--teal); }
+.sec-nav a[class*="t-"]::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--teal); margin-right:7px; vertical-align:1px; }
+.section { scroll-margin-top: 120px; }
+.comunicacion { grid-template-columns: 1fr; }
+.com-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.5; }
+.com-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.com-btn { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 3px; text-decoration: none; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); transition: color .2s, border-color .2s; }
+.com-btn:hover { color: var(--text); border-color: var(--muted); }
+
 /* ── FOOTER ── */
 .footer-wrap { border-top: 1px solid var(--border); }
 footer {
@@ -177,7 +194,7 @@ body.lang-es .en-text { display: none; }
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   .page-header { padding: 90px 24px 40px; }
-  .stats-bar { grid-template-columns: repeat(3,1fr); }
+  
   .sec-nav-inner { padding: 0 24px; }
   .section { padding: 48px 24px; }
   .entry { grid-template-columns: 1fr; }
@@ -188,6 +205,7 @@ body.lang-es .en-text { display: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
+<link rel="stylesheet" href="assets/banner.css">
 </head>
 <body class="lang-es">
 
@@ -219,40 +237,38 @@ body.lang-es .en-text { display: none; }
     <span class="badge badge-muted">IMFAHE Outstanding Professional</span>
     <span class="badge badge-teal"><span class="es-text">1 Quinquenio reconocido</span><span class="en-text">1 Five-year teaching merit award</span></span>
   </div>
-  <a href="cv/Anexo_CV_Docente_MariaJoseTorresPrioris.pdf" download class="btn-download">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    <span class="es-text">Descargar CV docente</span>
-    <span class="en-text">Download teaching CV</span>
-  </a>
 </div>
 </div>
 
 <!-- ══ STATS ══════════════════════════════════════════════════════════════════ -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-n">9</div><div class="stat-l es-text">Años de<br>experiencia</div><div class="stat-l en-text">Years of<br>experience</div></div>
   <div class="stat"><div class="stat-n">800+</div><div class="stat-l es-text">Horas<br>docencia</div><div class="stat-l en-text">Teaching<br>hours</div></div>
-  <div class="stat"><div class="stat-n">24</div><div class="stat-l es-text">TFG<br>dirigidos</div><div class="stat-l en-text">Bachelor's<br>theses</div></div>
-  <div class="stat"><div class="stat-n">9</div><div class="stat-l es-text">TFM<br>dirigidos</div><div class="stat-l en-text">Master's<br>theses</div></div>
   <div class="stat"><div class="stat-n">900+</div><div class="stat-l es-text">Horas<br>formación</div><div class="stat-l en-text">Training<br>hours</div></div>
+</div>
+
+<!-- ══ BANNER (assets/banner.js: elementos de esta página con data-news, 4 meses) ══ -->
+<div class="banner" id="banner" data-sources="teaching.html" hidden>
+  <div class="banner-inner">
+    <div class="banner-dot"></div>
+    <div class="banner-slider" id="banner-slider"></div>
+  </div>
+  <div class="banner-dots" id="banner-dots"></div>
 </div>
 
 <!-- ══ SEC NAV ════════════════════════════════════════════════════════════════ -->
 <div class="sec-nav">
   <div class="sec-nav-inner">
-    <a href="#resumen" class="es-text">Resumen</a><a href="#resumen" class="en-text">Summary</a>
-    <a href="#innovacion" class="es-text">Innovación</a><a href="#innovacion" class="en-text">Innovation</a>
-    <a href="#formacion" class="es-text">Formación</a><a href="#formacion" class="en-text">Training</a>
-    <a href="#proyectos" class="es-text">Proyectos</a><a href="#proyectos" class="en-text">Projects</a>
-    <a href="#coordinacion" class="es-text">Coordinación</a><a href="#coordinacion" class="en-text">Coordination</a>
-    <a href="#comunicaciones" class="es-text">Comunicaciones</a><a href="#comunicaciones" class="en-text">Communications</a>
-    <a href="#internacional" class="es-text">Internacional</a><a href="#internacional" class="en-text">International</a>
+    <a href="#resumen" class="es-text t-res">Resumen</a><a href="#resumen" class="en-text t-res">Summary</a>
+    <a href="#innovacion" class="es-text t-inn">Innovación</a><a href="#innovacion" class="en-text t-inn">Innovation</a>
+    <a href="#formacion" class="es-text t-form">Formación</a><a href="#formacion" class="en-text t-form">Training</a>
+    <a href="#coordinacion" class="es-text t-coord">Coordinación</a><a href="#coordinacion" class="en-text t-coord">Coordination</a>
+    <a href="#comunicaciones" class="es-text t-pubd">Publicaciones</a><a href="#comunicaciones" class="en-text t-pubd">Publications</a>
+    <a href="#internacional" class="es-text t-intl">Internacional</a><a href="#internacional" class="en-text t-intl">International</a>
   </div>
 </div>
 
 <!-- ══ RESUMEN ════════════════════════════════════════════════════════════════ -->
-<div class="section" id="resumen">
+<div class="section t-res" id="resumen">
   <div class="resumen es-text">
     Profesora con formación investigadora en neuropsicología del lenguaje, que ha desarrollado su trayectoria docente mediante contratos predoctoral (<strong>FPU, Ministerio de Educación, 2016</strong>) y postdoctoral con colaboración docente en el Área de Psicobiología de la UMA, así como contratos como <strong>Profesora Ayudante Doctora</strong>, primero en el Dpto. de Psicología Evolutiva y de la Educación y actualmente en el <strong>Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento (UMA)</strong>. A lo largo de nueve cursos académicos ha impartido más de 800&nbsp;h de docencia reglada en Grado y Máster, con dos evaluaciones <strong>EXCELENTE</strong> en DOCENTIA, un quinquenio reconocido y el <strong>Premio Docente UMA</strong> (menores de 35 años, 2020-21).
   </div>
@@ -261,59 +277,41 @@ body.lang-es .en-text { display: none; }
   </div>
 </div>
 
-<!-- ══ 1. INNOVACIÓN ══════════════════════════════════════════════════════════ -->
-<div class="section" id="innovacion">
+<!-- ══ INNOVACIÓN ═════════════════════════════════════════════════════════════ -->
+<div class="section t-inn" id="innovacion">
   <div class="section-label">
-    <span class="sec-num">1</span>
-    <span class="es-text">Experiencia en innovación educativa</span>
-    <span class="en-text">Educational innovation experience</span>
+    <span class="es-text">Proyectos de innovación docente</span>
+    <span class="en-text">Teaching innovation projects</span>
   </div>
 
-  <div class="entry">
-    <div>
-      <div class="entry-title es-text">Aula invertida en Fundamentos de Psicobiología II</div>
-      <div class="entry-title en-text">Flipped classroom in Fundamentals of Psychobiology II</div>
-      <div class="entry-sub es-text">Creación de vídeos originales de neuroanatomía para trabajo previo al aula, combinados con práctica con modelos anatómicos y neuroimagen.</div>
-      <div class="entry-sub en-text">Creation of original neuroanatomy videos for pre-class work, combined with hands-on practice with anatomical models and neuroimaging.</div>
-    </div>
-    <div class="entry-date">2020/21 – 2024/25</div>
+  <div class="proyecto-card" data-news="2026-10-08" data-kind="proj">
+    <h3 class="es-text">Proyecto de Innovación Educativa INNOVA26 «Transferencia de la Evidencia Científica a la Práctica Profesional»</h3>
+    <h3 class="en-text">Educational Innovation Project INNOVA26 «Transferring Scientific Evidence to Professional Practice»</h3>
+    <p class="es-text">Concedido en la <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">convocatoria INNOVA26</a> de la Universidad de Málaga.</p>
+    <p class="en-text">Awarded in the University of Málaga <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">INNOVA26 call</a>.</p>
+    <div class="pdate">2026 – 2028</div>
   </div>
 
-  <div class="entry">
-    <div>
-      <div class="entry-title es-text">Ciclos de Mejora en el Aula (CIMA) en Neuropsicología</div>
-      <div class="entry-title en-text">Classroom Improvement Cycles (CIMA) in Neuropsychology</div>
-      <div class="entry-sub es-text">Grado en Psicología y Grado en Logopedia. Incorporación de aprendizaje basado en problemas y método del caso.</div>
-      <div class="entry-sub en-text">Psychology and Speech Therapy degrees. Integration of problem-based learning and case study method.</div>
-    </div>
-    <div class="entry-date">2016/17 – 2019/20</div>
+  <div class="proyecto-card">
+    <h3 class="es-text">Proyecto de innovación docente «Aulas Clínicas»</h3>
+    <h3 class="en-text">Teaching innovation project «Clinical Classrooms»</h3>
+    <p class="es-text">Miembro del equipo. Elaboración de material audiovisual clínico con pacientes reales de afasia y enfermedades neurodegenerativas para el Máster en Psicología General Sanitaria. Selección de casos, grabación, edición y organización con criterios éticos y de confidencialidad.</p>
+    <p class="en-text">Team member. Creation of clinical audiovisual material with real patients with aphasia and neurodegenerative diseases for the Master's in General Health Psychology. Case selection, recording, editing and organisation following ethical and confidentiality criteria.</p>
+    <div class="pdate">2019 – 2021</div>
   </div>
 
-  <div class="entry">
-    <div>
-      <div class="entry-title es-text">Investigación sobre rendimiento académico en Psicobiología</div>
-      <div class="entry-title en-text">Research on academic performance in Psychobiology</div>
-      <div class="entry-sub es-text">Estudio del impacto de personalidad, constancia e implicación académica. 3 comunicaciones en congresos internacionales de educación (ICESD y Congreso Nodos del Conocimiento).</div>
-      <div class="entry-sub en-text">Study of the impact of personality, perseverance and academic engagement. 3 communications at international education congresses (ICESD and Nodos del Conocimiento).</div>
-    </div>
-    <div class="entry-date">2021</div>
-  </div>
-
-  <div class="entry">
-    <div>
-      <div class="entry-title es-text">Gamificación en el aula</div>
-      <div class="entry-title en-text">Gamification in the classroom</div>
-      <div class="entry-sub es-text">Implementación de dinámicas de gamificación en asignaturas del Área de Psicobiología.</div>
-      <div class="entry-sub en-text">Implementation of gamification dynamics in Psychobiology Area courses.</div>
-    </div>
-    <div class="entry-date">2019 – 2022</div>
+  <div class="proyecto-card">
+    <h3 class="es-text">Proyecto de Innovación Educativa «Programa de mentorización para estudiantes de doctorado en Psicología»</h3>
+    <h3 class="en-text">Educational Innovation Project «Mentoring Programme for Doctoral Students in Psychology»</h3>
+    <p class="es-text">Referencia GIE22-097. Participación como Mentora Senior en el diseño e implementación del programa de mentorazgo de doctorandos de la Facultad de Psicología (UMA).</p>
+    <p class="en-text">Reference GIE22-097. Participation as Senior Mentor in the design and implementation of the doctoral mentoring programme at the Faculty of Psychology (UMA).</p>
+    <div class="pdate">2022 – 2024</div>
   </div>
 </div>
 
 <!-- ══ 2. FORMACIÓN ═══════════════════════════════════════════════════════════ -->
-<div class="section" id="formacion">
+<div class="section t-form" id="formacion">
   <div class="section-label">
-    <span class="sec-num">2</span>
     <span class="es-text">Formación didáctica recibida</span>
     <span class="en-text">Teaching training received</span>
   </div>
@@ -368,35 +366,9 @@ body.lang-es .en-text { display: none; }
   <p class="formacion-complementaria en-text">Additional training: educational data analytics, visual thinking, formative assessment, functional diversity, PBL, multimedia digital content creation, educational coaching, digital public speaking (UNIA, UMA, UDIMA, 2018–2025).</p>
 </div>
 
-<!-- ══ 3. PROYECTOS ════════════════════════════════════════════════════════════ -->
-<div class="section" id="proyectos">
-  <div class="section-label">
-    <span class="sec-num">3</span>
-    <span class="es-text">Participación en proyectos anteriores</span>
-    <span class="en-text">Participation in previous projects</span>
-  </div>
-
-  <div class="proyecto-card">
-    <h3 class="es-text">Proyecto de innovación docente «Aulas Clínicas»</h3>
-    <h3 class="en-text">Teaching innovation project «Clinical Classrooms»</h3>
-    <p class="es-text">Miembro del equipo. Elaboración de material audiovisual clínico con pacientes reales de afasia y enfermedades neurodegenerativas para el Máster en Psicología General Sanitaria. Selección de casos, grabación, edición y organización con criterios éticos y de confidencialidad.</p>
-    <p class="en-text">Team member. Creation of clinical audiovisual material with real patients with aphasia and neurodegenerative diseases for the Master's in General Health Psychology. Case selection, recording, editing and organisation following ethical and confidentiality criteria.</p>
-    <div class="pdate">2019 – 2021</div>
-  </div>
-
-  <div class="proyecto-card">
-    <h3 class="es-text">Proyecto de Innovación Educativa «Programa de mentorización para estudiantes de doctorado en Psicología»</h3>
-    <h3 class="en-text">Educational Innovation Project «Mentoring Programme for Doctoral Students in Psychology»</h3>
-    <p class="es-text">Referencia GIE22-097. Participación como Mentora Senior en el diseño e implementación del programa de mentorazgo de doctorandos de la Facultad de Psicología (UMA).</p>
-    <p class="en-text">Reference GIE22-097. Participation as Senior Mentor in the design and implementation of the doctoral mentoring programme at the Faculty of Psychology (UMA).</p>
-    <div class="pdate">2022 – 2024</div>
-  </div>
-</div>
-
 <!-- ══ 4. COORDINACIÓN ════════════════════════════════════════════════════════ -->
-<div class="section" id="coordinacion">
+<div class="section t-coord" id="coordinacion">
   <div class="section-label">
-    <span class="sec-num">4</span>
     <span class="es-text">Coordinación docente y trabajo en equipo</span>
     <span class="en-text">Teaching coordination and teamwork</span>
   </div>
@@ -458,17 +430,29 @@ body.lang-es .en-text { display: none; }
   </div>
 </div>
 
-<!-- ══ COMUNICACIONES ═════════════════════════════════════════════════════════ -->
-<div class="section" id="comunicaciones">
+<!-- ══ PUBLICACIONES Y COMUNICACIONES ═════════════════════════════════════════ -->
+<div class="section t-pubd" id="comunicaciones">
   <div class="section-label">
-    <span class="es-text">Comunicaciones en congresos docentes</span>
-    <span class="en-text">Education conference communications</span>
+    <span class="es-text">Publicaciones y comunicaciones</span>
+    <span class="en-text">Publications and communications</span>
+  </div>
+
+  <div class="comunicacion" data-news="2026-10-08" data-kind="pub">
+    <div class="com-body">
+      <span class="com-title" data-news-title>Technology-enhanced learning in undergraduate neuroscience education: tractography-based virtual dissection in psychology</span>
+      <span class="com-type oral es-text">Preprint</span>
+      <span class="com-type oral en-text">Preprint</span>
+      <div class="com-meta">Preprint · 2026</div>
+      <div class="com-actions">
+        <a href="https://doi.org/10.64898/2026.09.21.753122" target="_blank" rel="noopener" class="com-btn">DOI</a>
+        <a href="https://doi.org/10.5281/zenodo.22129828" target="_blank" rel="noopener" class="com-btn"><span class="es-text">Datos (Zenodo)</span><span class="en-text">Data (Zenodo)</span></a>
+      </div>
+    </div>
   </div>
 
   <div class="comunicacion">
-    <span class="com-tag">TC03</span>
     <div class="com-body">
-      <a href="publicaciones/TC03.pdf" download class="com-link">
+      <a href="publicaciones/Nodos2021_rendimiento.pdf" download class="com-link">
         <span class="es-text">Factores asociados al rendimiento académico en la asignatura de Psicobiología: Personalidad, constancia en el esfuerzo e implicación académica</span>
         <span class="en-text">Factors associated with academic performance in Psychobiology: Personality, perseverance and academic engagement</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -480,10 +464,10 @@ body.lang-es .en-text { display: none; }
   </div>
 
   <div class="comunicacion">
-    <span class="com-tag">TC02</span>
     <div class="com-body">
-      <a href="publicaciones/TC02.pdf" download class="com-link">
-        The relationship between personality traits and academic achievement in Psychobiology course among Psychology university students
+      <a href="publicaciones/ICESD2021_personalidad.pdf" download class="com-link">
+        <span class="es-text">The relationship between personality traits and academic achievement in Psychobiology course among Psychology university students</span>
+        <span class="en-text">The relationship between personality traits and academic achievement in Psychobiology course among Psychology university students</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
       <span class="com-type oral es-text">Comunicación oral</span>
@@ -493,9 +477,8 @@ body.lang-es .en-text { display: none; }
   </div>
 
   <div class="comunicacion">
-    <span class="com-tag">TC01</span>
     <div class="com-body">
-      <a href="publicaciones/TC01.pdf" download class="com-link">
+      <a href="publicaciones/ICESD2021_docencia_pandemia.pdf" download class="com-link">
         <span class="es-text">Docencia universitaria en tiempos de la COVID-19: utilidad del aula invertida y la gamificación</span>
         <span class="en-text">University teaching in times of COVID-19: effectiveness of flipped classroom and gamification</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -508,7 +491,7 @@ body.lang-es .en-text { display: none; }
 </div>
 
 <!-- ══ INTERNACIONAL ══════════════════════════════════════════════════════════ -->
-<div class="section" id="internacional">
+<div class="section t-intl" id="internacional">
   <div class="section-label">
     <span class="es-text">Internacionalización docente</span>
     <span class="en-text">Teaching internationalisation</span>
@@ -564,5 +547,6 @@ function setLang(lang) {
 const saved = localStorage.getItem('lang');
 if (saved) setLang(saved);
 </script>
+<script src="assets/banner.js"></script>
 </body>
 </html>

@@ -233,54 +233,6 @@ h1 .cursor {
 .hero-stat-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
 
 [hidden] { display: none !important; }
-/* ── BANNER ── */
-.banner { background: var(--teal-dim); border-top: 1px solid rgba(78,205,196,.2); border-bottom: 1px solid rgba(78,205,196,.2); padding: 14px 48px 10px; }
-.banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.banner-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s ease-in-out infinite; }
-@keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(78,205,196,.4)} 50%{box-shadow:0 0 0 6px rgba(78,205,196,0)} }
-.banner-text { font-size: 13.5px; color: var(--text); flex: 1; }
-.banner-text strong { color: var(--teal); }
-.banner-link { font-size: 12.5px; color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(78,205,196,.4); padding-bottom: 1px; white-space: nowrap; transition: border-color .2s; }
-.banner-link:hover { border-color: var(--teal); }
-.banner-slider { flex: 1; position: relative; overflow: hidden; min-height: 24px; }
-.banner-slide { display: none; align-items: center; gap: 12px; flex-wrap: wrap; animation: fadeIn .4s ease; }
-.banner-slide.active { display: flex; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.banner-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  background: rgba(78,205,196,.2);
-  color: var(--teal);
-  border: 1px solid rgba(78,205,196,.3);
-  border-radius: 3px;
-  padding: 2px 8px;
-  white-space: nowrap;
-}
-.tag-pub { background: rgba(76,175,130,.15); color: #4CAF82; border-color: rgba(76,175,130,.3); }
-.tag-conf { background: rgba(232,168,56,.15); color: #E8A838; border-color: rgba(232,168,56,.3); }
-.tag-proj { background: rgba(91,141,239,.15); color: #5B8DEF; border-color: rgba(91,141,239,.3); }
-
-.banner-dots {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 0 2px;
-}
-.banner-dot-btn {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(78,205,196,.3);
-  cursor: pointer;
-  transition: background .2s, transform .2s;
-  padding: 0;
-}
-.banner-dot-btn.active { background: var(--teal); transform: scale(1.3); }
-
 /* ── SECTIONS ── */
 .section { max-width: 1100px; margin: 0 auto; padding: 80px 48px; border-top: 1px solid var(--border); }
 .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 40px; display: flex; align-items: center; gap: 12px; }
@@ -355,13 +307,13 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
   .section { padding: 60px 24px; }
   .pub-item { grid-template-columns: 42px 1fr; }
   .pub-actions { flex-direction: row; grid-column: 2; }
-  .banner { padding: 14px 24px; }
   footer { padding: 32px 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
+<link rel="stylesheet" href="assets/banner.css">
 </head>
 <body class="lang-es">
 
@@ -426,9 +378,9 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
 
 
 <!-- ══ BANNER ROTATORIO ══════════════════════════════════════════════════════
-     Se genera solo a partir de research.html: cada elemento con data-news="AAAA-MM-DD"
-     (fecha en que se sube) aparece aquí durante 4 meses. Los más recientes primero, máximo 5. -->
-<div class="banner" id="banner" hidden>
+     Se genera solo (assets/banner.js) a partir de research.html y teaching.html: cada elemento
+     con data-news="AAAA-MM-DD" (fecha en que se sube) y data-kind aparece durante 4 meses. -->
+<div class="banner" id="banner" data-sources="research.html teaching.html" hidden>
   <div class="banner-inner">
     <div class="banner-dot"></div>
     <div class="banner-slider" id="banner-slider"></div>
@@ -600,59 +552,8 @@ function type() {
   }
 }
 setTimeout(type, 300);
-// Banner rotatorio: novedades de los últimos 4 meses, leídas de research.html
-(function () {
-  const MAX = 5;
-  const LABELS = {
-    pub:    ['tag-pub',  'Nueva publicación', 'New publication', 'research.html#publications'],
-    conf:   ['tag-conf', 'Congreso',          'Conference',      'research.html#publications'],
-    thesis: ['tag-proj', 'Tesis defendida',   'Thesis defended', 'research.html#theses']
-  };
-  const esc = t => t.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  fetch('research.html').then(r => r.text()).then(html => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const limit = new Date(); limit.setMonth(limit.getMonth() - 4);
-    const items = [...doc.querySelectorAll('[data-news]')]
-      .map((el, idx) => ({ el, idx, date: new Date(el.dataset.news + 'T00:00:00') }))
-      .filter(x => !isNaN(x.date) && x.date >= limit && LABELS[x.el.dataset.kind])
-      .sort((a, b) => b.date - a.date || a.idx - b.idx)
-      .slice(0, MAX);
-    if (!items.length) return;
-    const slider = document.getElementById('banner-slider');
-    const dotsBox = document.getElementById('banner-dots');
-    items.forEach(({ el }, n) => {
-      const [cls, es, en, href] = LABELS[el.dataset.kind];
-      const title = (el.querySelector('.pub-title, .project-title.es-text') || {}).textContent || '';
-      const venue = (el.querySelector('.pub-tag') || {}).textContent || '';
-      const pdf = el.querySelector('a.pub-btn-pdf');
-      const text = esc((venue ? venue + '. ' : '') + title.trim());
-      slider.insertAdjacentHTML('beforeend',
-        `<div class="banner-slide${n ? '' : ' active'}">
-           <p class="banner-text">
-             <span class="banner-tag ${cls} es-text">${es}</span><span class="banner-tag ${cls} en-text">${en}</span>
-             <span> — ${text}</span>
-           </p>
-           <a href="${href}" class="banner-link es-text">Ver más →</a><a href="${href}" class="banner-link en-text">See more →</a>
-           ${pdf ? `<a href="${esc(pdf.getAttribute('href'))}" download class="banner-link">PDF ↓</a>` : ''}
-         </div>`);
-      if (items.length > 1)
-        dotsBox.insertAdjacentHTML('beforeend', `<button class="banner-dot-btn${n ? '' : ' active'}" aria-label="${n + 1}"></button>`);
-    });
-    document.getElementById('banner').hidden = false;
-    const slides = slider.querySelectorAll('.banner-slide');
-    const dots = dotsBox.querySelectorAll('.banner-dot-btn');
-    if (slides.length < 2) return;
-    let current = 0, timer;
-    const goToSlide = n => {
-      slides[current].classList.remove('active'); dots[current].classList.remove('active');
-      current = n;
-      slides[current].classList.add('active'); dots[current].classList.add('active');
-      clearInterval(timer); timer = setInterval(() => goToSlide((current + 1) % slides.length), 8000);
-    };
-    dots.forEach((d, n) => d.addEventListener('click', () => goToSlide(n)));
-    goToSlide(0);
-  }).catch(() => {});
-})();
+
 </script>
+<script src="assets/banner.js"></script>
 </body>
 </html>
