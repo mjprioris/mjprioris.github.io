@@ -36,15 +36,18 @@
       const [cls, es, en] = LABELS[el.dataset.kind];
       const sec = el.closest('.section[id]');
       const href = (src === here ? '' : src) + (sec ? '#' + sec.id : '');
-      const title = clean(el.querySelector('[data-news-title], .pub-title, .project-title.es-text, h3.es-text'));
-      const venue = clean(el.querySelector('.pub-tag'));
+      const tag = el.querySelector('.pub-tag');
+      const text = lang => {
+        const title = clean(el.querySelector(`[data-news-title], .pub-title, .project-title.${lang}-text, h3.${lang}-text`));
+        const venue = tag ? clean(tag.querySelector(`.${lang}-text`) || tag) : '';
+        return esc((venue ? venue + '. ' : '') + title);
+      };
       const pdf = el.querySelector('a.pub-btn-pdf');
-      const text = esc((venue ? venue + '. ' : '') + title);
       slider.insertAdjacentHTML('beforeend',
         `<div class="banner-slide${n ? '' : ' active'}">
            <p class="banner-text">
              <span class="banner-tag ${cls} es-text">${es}</span><span class="banner-tag ${cls} en-text">${en}</span>
-             <span> — ${text}</span>
+             <span class="es-text"> — ${text('es')}</span><span class="en-text"> — ${text('en')}</span>
            </p>
            <a href="${esc(href)}" class="banner-link es-text">Ver más →</a><a href="${esc(href)}" class="banner-link en-text">See more →</a>
            ${pdf ? `<a href="${esc(pdf.getAttribute('href'))}" download class="banner-link">PDF ↓</a>` : ''}
