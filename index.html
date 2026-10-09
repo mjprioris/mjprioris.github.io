@@ -161,6 +161,12 @@ h1 .cursor {
   max-width: 540px;
   margin-bottom: 40px;
 }
+.hero-more { margin: -8px 0 28px; max-width: 540px; }
+.hero-more summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none; font-size: 14px; color: var(--teal); }
+.hero-more summary::-webkit-details-marker { display: none; }
+.hero-more summary svg { width: 15px; height: 15px; transition: transform .2s; }
+.hero-more[open] summary svg { transform: rotate(180deg); }
+.hero-more-body p { font-size: 15px; line-height: 1.75; color: var(--muted); margin-top: 14px; }
 .hero-bio strong { color: var(--text); font-weight: 500; }
 .hero-ids { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
 .id-chip {
@@ -347,11 +353,31 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
       <a class="en-text" href="https://cimes.es/grupos-investigacion/unidad-neurociencia-cognitiva-afasias/" target="_blank" rel="noopener">Cognitive Neuroscience and Aphasia Unit · Medical-Health Research Centre (CIMES)</a>
     </div>
     <p class="hero-bio es-text">
-      Soy Profesora Ayudante Doctora en la Universidad de Málaga, donde investigo los mecanismos cognitivos y cerebrales del lenguaje, la afasia post-ictus y la plasticidad cerebral. Me doctoré en Biomedicina en 2019 (Cum Laude), con Premio Extraordinario de Doctorado, y he realizado 21 meses de estancias de investigación en centros de referencia nacionales e internacionales. He publicado 24 artículos en revistas de alto impacto (<em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em>, <em>Scientific Reports</em>) y 5 capítulos de libro. Soy Editora Invitada en <em>Brain and Language</em> y miembro de la red internacional INCLUDE. Compagino investigación, práctica clínica y docencia universitaria.
+      Investigadora y docente en la Universidad de Málaga. Mi investigación se centra en las bases cognitivas y cerebrales del lenguaje y en la recuperación de la afasia tras un ictus.
     </p>
+    <details class="hero-more es-text">
+      <summary>Más información<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+      <div class="hero-more-body">
+        <p>Soy Profesora Ayudante Doctora. Me interesan especialmente los mecanismos cognitivos y cerebrales de la producción del habla, el análisis del discurso espontáneo, la caracterización de perfiles afásicos y la plasticidad cerebral y la recuperación tras daño cerebral adquirido.</p>
+        <p>Me doctoré en Biomedicina e Investigación Traslacional por la Universidad de Málaga en 2019 (Cum Laude y Premio Extraordinario). Mi etapa predoctoral y postdoctoral se ha financiado con contratos competitivos (FPU, PAIDI, Margarita Salas) y he realizado 21 meses de estancias en centros de referencia nacionales e internacionales. Me he especializado en neuroimagen multimodal, evaluación neuropsicológica del lenguaje y análisis del habla conectada en personas con afasia.</p>
+        <p>He publicado 24 artículos en revistas internacionales como <em>Neurology</em>, <em>Brain Structure and Function</em>, <em>Brain and Language</em>, <em>Scientific Reports</em>, <em>Cortex</em> o <em>Aphasiology</em>, además de 5 capítulos de libro. Estudio fenómenos centrales de la afasia como la conducta de aproximación (<em>conduite d'approche</em>), la ecolalia, las perseveraciones semánticas y la evolución heterogénea de los perfiles afásicos. Mi trabajo sobre la pericia en habla inversa recibió el Premio Ig Nobel 2023 de Comunicación.</p>
+        <p>He participado en diversos proyectos de investigación nacionales, autonómicos y de universidad. Formo parte del comité de investigación de la red internacional INCLUDE, que promueve la diversidad lingüística en los estudios de salud cerebral. Soy Editora Invitada de un número especial de <em>Brain and Language</em> y revisora de revistas como <em>Cortex</em>, <em>Brain Structure and Function</em>, <em>Aphasiology</em> y <em>European Journal of Neurology</em>.</p>
+        <p>Desde 2014 compagino la investigación con la práctica clínica en la Unidad de Neurociencia Cognitiva y Afasia y con la docencia en los Grados de Psicología y Logopedia de la Universidad de Málaga.</p>
+      </div>
+    </details>
     <p class="hero-bio en-text">
-      I am an Assistant Professor at the University of Málaga, where I investigate the cognitive and neural mechanisms of language, post-stroke aphasia and brain plasticity. I completed my PhD in Biomedicine in 2019 (Cum Laude), receiving the Extraordinary Doctorate Award, and have carried out 21 months of research stays at leading national and international centres. I have published 24 articles in high-impact journals (<em>Neurology</em>, <em>Brain and Language</em>, <em>Cortex</em>, <em>Scientific Reports</em>) and 5 book chapters. I am a Guest Editor at <em>Brain and Language</em> and a member of the international INCLUDE network. I combine research, clinical practice and university teaching.
+      Researcher and lecturer at the University of Málaga. My research focuses on the cognitive and neural bases of language and on recovery from aphasia after stroke.
     </p>
+    <details class="hero-more en-text">
+      <summary>More information<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+      <div class="hero-more-body">
+        <p>I am an Assistant Professor. I am particularly interested in the cognitive and neural mechanisms of speech production, the analysis of spontaneous discourse, the characterisation of aphasic profiles, and brain plasticity and recovery after acquired brain injury.</p>
+        <p>I obtained my PhD in Biomedicine and Translational Research from the University of Málaga in 2019 (Cum Laude and Extraordinary Doctorate Award). My predoctoral and postdoctoral work has been funded through competitive contracts (FPU, PAIDI, Margarita Salas), and I have carried out 21 months of research stays at leading national and international centres. I specialise in multimodal neuroimaging, neuropsychological assessment of language and the analysis of connected speech in people with aphasia.</p>
+        <p>I have published 24 articles in international journals such as <em>Neurology</em>, <em>Brain Structure and Function</em>, <em>Brain and Language</em>, <em>Scientific Reports</em>, <em>Cortex</em> and <em>Aphasiology</em>, as well as 5 book chapters. I study core phenomena of aphasia such as <em>conduite d'approche</em>, echolalia, semantic perseverations and the heterogeneous progression of aphasic profiles. My work on expertise in backward speech received the 2023 Ig Nobel Prize in Communication.</p>
+        <p>I have taken part in a range of national, regional and university research projects. I sit on the research committee of the international INCLUDE network, which promotes linguistic diversity in brain health research. I am Guest Editor of a special issue of <em>Brain and Language</em> and review for journals such as <em>Cortex</em>, <em>Brain Structure and Function</em>, <em>Aphasiology</em> and <em>European Journal of Neurology</em>.</p>
+        <p>Since 2014 I have combined research with clinical practice at the Cognitive Neuroscience and Aphasia Unit and with teaching on the Psychology and Speech Therapy degrees at the University of Málaga.</p>
+      </div>
+    </details>
     <div class="hero-ids">
     <a class="id-chip" href="https://portaldelainvestigacion.uma.es/investigadores/1104282/detalle" target="_blank">Portal UMA</a>
     <a class="id-chip" href="https://orcid.org/0000-0003-3795-8151" target="_blank">ORCID</a>
