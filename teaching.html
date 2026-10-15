@@ -207,13 +207,26 @@ body.lang-es .en-text { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Bloques añadidos desde el panel */
+.bloque-texto p { font-size: 16px; line-height: 1.75; color: #B0B0B0; max-width: 760px; margin-bottom: 14px; }
+.bloque-texto a, .bloque-enlaces span a { color: var(--teal); }
+.bloque-con-foto { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 36px; align-items: start; }
+.bloque-con-foto img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border); display: block; }
+a.bloque-tarjeta { text-decoration: none; color: inherit; display: block; }
+a.bloque-tarjeta:hover { border-color: var(--teal); }
+.bloque-enlaces { list-style: none; max-width: 760px; }
+.bloque-enlaces li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.bloque-enlaces li > a { color: var(--teal); text-decoration: none; font-weight: 500; }
+.bloque-enlaces li > span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+body.lang-en .bloque-enlaces .es-text, body.lang-es .bloque-enlaces .en-text { display: none; }
+@media (max-width: 760px) { .bloque-con-foto { grid-template-columns: 1fr; } }
 </style>
 <link rel="stylesheet" href="assets/banner.css">
 </head>
 <body class="lang-es">
 
-<!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
-<nav>
+<nav id="main-nav">
   <a href="index.html" class="nav-logo">MJTP<span>.</span></a>
   <ul class="nav-links">
     <li><a href="research.html" class="es-text">Investigación</a><a href="research.html" class="en-text">Research</a></li>
@@ -225,7 +238,6 @@ body.lang-es .en-text { display: none; }
   </div>
 </nav>
 
-<!-- ══ PAGE HEADER ════════════════════════════════════════════════════════════ -->
 <div class="page-header-wrap">
 <div class="page-header">
   <div class="page-eyebrow">
@@ -235,7 +247,7 @@ body.lang-es .en-text { display: none; }
   <h1>María José Torres-Prioris</h1>
   <div class="page-header-inst"><span class="es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Facultad de Psicología y Logopedia · Universidad de Málaga</span><span class="en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Faculty of Psychology and Speech Therapy · University of Málaga</span></div>
   <div class="badges">
-    <span class="badge badge-teal">2× DOCENTIA <span class="es-text">Excelente</span><span class="en-text">Excellent</span></span>
+    <span class="badge badge-teal"><span class="es-text">2× DOCENTIA Excelente</span><span class="en-text">2× DOCENTIA Excellent</span></span>
     <span class="badge badge-muted"><span class="es-text">Premio UMA a la Trayectoria Docente · 2022</span><span class="en-text">UMA Teaching Career Award · 2022</span></span>
     <span class="badge badge-muted">IMFAHE Outstanding Professional</span>
     <span class="badge badge-teal"><span class="es-text">1 Quinquenio reconocido</span><span class="en-text">1 Five-year teaching merit award</span></span>
@@ -243,13 +255,11 @@ body.lang-es .en-text { display: none; }
 </div>
 </div>
 
-<!-- ══ STATS ══════════════════════════════════════════════════════════════════ -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-n">800+</div><div class="stat-l es-text">Horas<br>docencia</div><div class="stat-l en-text">Teaching<br>hours</div></div>
-  <div class="stat"><div class="stat-n">900+</div><div class="stat-l es-text">Horas<br>formación</div><div class="stat-l en-text">Training<br>hours</div></div>
+  <div class="stat"><div class="stat-n">800+</div><div class="stat-l es-text">Horas<br/>docencia</div><div class="stat-l en-text">Teaching<br/>hours</div></div>
+  <div class="stat"><div class="stat-n">900+</div><div class="stat-l es-text">Horas<br/>formación</div><div class="stat-l en-text">Training<br/>hours</div></div>
 </div>
 
-<!-- ══ BANNER (assets/banner.js: elementos de esta página con data-news, 4 meses) ══ -->
 <div class="banner" id="banner" data-sources="teaching.html" hidden>
   <div class="banner-inner">
     <div class="banner-dot"></div>
@@ -258,7 +268,6 @@ body.lang-es .en-text { display: none; }
   <div class="banner-dots" id="banner-dots"></div>
 </div>
 
-<!-- ══ SEC NAV ════════════════════════════════════════════════════════════════ -->
 <div class="sec-nav">
   <div class="sec-nav-inner">
     <a href="#resumen" class="es-text t-res">Resumen</a><a href="#resumen" class="en-text t-res">Summary</a>
@@ -271,269 +280,185 @@ body.lang-es .en-text { display: none; }
   </div>
 </div>
 
-<!-- ══ RESUMEN ════════════════════════════════════════════════════════════════ -->
-<div class="section t-res" id="resumen">
-  <div class="resumen es-text">
-    Profesora con formación investigadora en neuropsicología del lenguaje, que ha desarrollado su trayectoria docente mediante contratos predoctoral (<strong>FPU, Ministerio de Educación, 2016</strong>) y postdoctoral con colaboración docente en el Área de Psicobiología de la UMA, así como contratos como <strong>Profesora Ayudante Doctora</strong>, primero en el Dpto. de Psicología Evolutiva y de la Educación y actualmente en el <strong>Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento (UMA)</strong>. A lo largo de nueve cursos académicos ha impartido más de 800&nbsp;h de docencia reglada en Grado y Máster, con dos evaluaciones <strong>EXCELENTE</strong> en DOCENTIA, un quinquenio reconocido y el <strong>Premio UMA a la Trayectoria Docente</strong> (2022).
-  </div>
-  <div class="resumen en-text">
-    Lecturer with a research background in language neuropsychology, who has developed her teaching career through a predoctoral contract (<strong>FPU, Ministry of Education, 2016</strong>) and postdoctoral contracts with teaching collaboration in the Psychobiology Area at UMA, as well as positions as <strong>Assistant Professor</strong>, first in the Dept. of Developmental and Educational Psychology and currently in the <strong>Dept. of Psychobiology and Methodology of Behavioural Sciences (UMA)</strong>. Over nine academic years she has taught more than 800&nbsp;h of formal teaching in undergraduate and postgraduate programmes, with two <strong>EXCELLENT</strong> DOCENTIA evaluations, one five-year teaching merit award and the <strong>UMA Teaching Career Award</strong> (2022).
-  </div>
-</div>
+<section class="section t-res" id="resumen">
+  <div class="resumen es-text">Profesora con formación investigadora en neuropsicología del lenguaje, que ha desarrollado su trayectoria docente mediante contratos predoctoral (<strong>FPU, Ministerio de Educación, 2016</strong>) y postdoctoral con colaboración docente en el Área de Psicobiología de la UMA, así como contratos como <strong>Profesora Ayudante Doctora</strong>, primero en el Dpto. de Psicología Evolutiva y de la Educación y actualmente en el <strong>Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento (UMA)</strong>. A lo largo de nueve cursos académicos ha impartido más de 800 h de docencia reglada en Grado y Máster, con dos evaluaciones <strong>EXCELENTE</strong> en DOCENTIA, un quinquenio reconocido y el <strong>Premio UMA a la Trayectoria Docente</strong> (2022).</div><div class="resumen en-text">Lecturer with a research background in language neuropsychology, who has developed her teaching career through a predoctoral contract (<strong>FPU, Ministry of Education, 2016</strong>) and postdoctoral contracts with teaching collaboration in the Psychobiology Area at UMA, as well as positions as <strong>Assistant Professor</strong>, first in the Dept. of Developmental and Educational Psychology and currently in the <strong>Dept. of Psychobiology and Methodology of Behavioural Sciences (UMA)</strong>. Over nine academic years she has taught more than 800 h of formal teaching in undergraduate and postgraduate programmes, with two <strong>EXCELLENT</strong> DOCENTIA evaluations, one five-year teaching merit award and the <strong>UMA Teaching Career Award</strong> (2022).</div>
+</section>
 
-<!-- ══ DOCENCIA IMPARTIDA ══════════════════════════════════════════════════════
-     Para actualizar: cambiar el curso en la columna de la derecha. -->
-<div class="section t-asig" id="asignaturas">
-  <div class="section-label">
-    <span class="es-text">Docencia impartida</span>
-    <span class="en-text">Courses taught</span>
-  </div>
-
-  <div class="group-label es-text">Grado en Psicología · Universidad de Málaga</div>
-  <div class="group-label en-text">BSc in Psychology · University of Málaga</div>
+<section class="section t-asig" id="asignaturas">
+  <div class="section-label es-text">Docencia impartida</div><div class="section-label en-text">Courses taught</div>
+  <div class="group-label es-text">Grado en Psicología · Universidad de Málaga</div><div class="group-label en-text">BSc in Psychology · University of Málaga</div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Neuropsicología</div>
-      <div class="entry-title en-text">Neuropsychology</div>
-      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Coordinadora</div>
-      <div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Course coordinator</div>
+      <div class="entry-title es-text">Neuropsicología</div><div class="entry-title en-text">Neuropsychology</div>
+      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Coordinadora</div><div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Course coordinator</div>
     </div>
     <div class="entry-date">2016/17 – 2019/20 · 2026/27</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Fundamentos de Psicobiología II</div>
-      <div class="entry-title en-text">Fundamentals of Psychobiology II</div>
-      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento</div>
-      <div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences</div>
+      <div class="entry-title es-text">Fundamentos de Psicobiología II</div><div class="entry-title en-text">Fundamentals of Psychobiology II</div>
+      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento</div><div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences</div>
     </div>
     <div class="entry-date">2020/21 – 2021/22 · 2024/25 – 2026/27</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Prácticas Externas (Itinerario de Psicología Clínica)</div>
-      <div class="entry-title en-text">External Placements (Clinical Psychology track)</div>
-      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento</div>
-      <div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences</div>
+      <div class="entry-title es-text">Prácticas Externas (Itinerario de Psicología Clínica)</div><div class="entry-title en-text">External Placements (Clinical Psychology track)</div>
+      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento</div><div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences</div>
     </div>
     <div class="entry-date">2024/25 – 2025/26</div>
   </div>
-  <div class="group-label es-text">Grado en Logopedia · Universidad de Málaga</div>
-  <div class="group-label en-text">BSc in Speech Therapy · University of Málaga</div>
+  <div class="group-label es-text">Grado en Logopedia · Universidad de Málaga</div><div class="group-label en-text">BSc in Speech Therapy · University of Málaga</div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Neuropsicología</div>
-      <div class="entry-title en-text">Neuropsychology</div>
-      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Coordinadora</div>
-      <div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Course coordinator</div>
+      <div class="entry-title es-text">Neuropsicología</div><div class="entry-title en-text">Neuropsychology</div>
+      <div class="entry-sub es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Coordinadora</div><div class="entry-sub en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Course coordinator</div>
     </div>
     <div class="entry-date">2025/26 – 2026/27</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje I</div>
-      <div class="entry-title en-text">Developmental Psychology and Language Acquisition I</div>
-      <div class="entry-sub es-text">Dpto. de Psicología Evolutiva y de la Educación · Coordinadora</div>
-      <div class="entry-sub en-text">Dept. of Developmental and Educational Psychology · Course coordinator</div>
+      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje I</div><div class="entry-title en-text">Developmental Psychology and Language Acquisition I</div>
+      <div class="entry-sub es-text">Dpto. de Psicología Evolutiva y de la Educación · Coordinadora</div><div class="entry-sub en-text">Dept. of Developmental and Educational Psychology · Course coordinator</div>
     </div>
     <div class="entry-date">2023/24 – 2024/25</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje II</div>
-      <div class="entry-title en-text">Developmental Psychology and Language Acquisition II</div>
-      <div class="entry-sub es-text">Dpto. de Psicología Evolutiva y de la Educación · Coordinadora</div>
-      <div class="entry-sub en-text">Dept. of Developmental and Educational Psychology · Course coordinator</div>
+      <div class="entry-title es-text">Psicología del Desarrollo y Adquisición del Lenguaje II</div><div class="entry-title en-text">Developmental Psychology and Language Acquisition II</div>
+      <div class="entry-sub es-text">Dpto. de Psicología Evolutiva y de la Educación · Coordinadora</div><div class="entry-sub en-text">Dept. of Developmental and Educational Psychology · Course coordinator</div>
     </div>
     <div class="entry-date">2023/24 – 2024/25</div>
   </div>
-  <div class="group-label es-text">Posgrado y títulos propios</div>
-  <div class="group-label en-text">Postgraduate and university-specific degrees</div>
+  <div class="group-label es-text">Posgrado y títulos propios</div><div class="group-label en-text">Postgraduate and university-specific degrees</div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Neuroimagen · Máster Oficial en Investigación Logopédica en Trastornos Degenerativos y Daño Cerebral</div>
-      <div class="entry-title en-text">Neuroimaging · Official Master's in Speech Therapy Research on Degenerative Disorders and Brain Damage</div>
-      <div class="entry-sub es-text">Universidad de Granada</div>
-      <div class="entry-sub en-text">University of Granada</div>
+      <div class="entry-title es-text">Neuroimagen · Máster Oficial en Investigación Logopédica en Trastornos Degenerativos y Daño Cerebral</div><div class="entry-title en-text">Neuroimaging · Official Master's in Speech Therapy Research on Degenerative Disorders and Brain Damage</div>
+      <div class="entry-sub es-text">Universidad de Granada</div><div class="entry-sub en-text">University of Granada</div>
     </div>
     <div class="entry-date">2019/20 – 2020/21</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Experto Universitario en Neuropsicología Clínica Infantil</div>
-      <div class="entry-title en-text">University Expert in Child Clinical Neuropsychology</div>
-      <div class="entry-sub es-text">Título propio · Universidad de Málaga</div>
-      <div class="entry-sub en-text">University-specific degree · University of Málaga</div>
+      <div class="entry-title es-text">Experto Universitario en Neuropsicología Clínica Infantil</div><div class="entry-title en-text">University Expert in Child Clinical Neuropsychology</div>
+      <div class="entry-sub es-text">Título propio · Universidad de Málaga</div><div class="entry-sub en-text">University-specific degree · University of Málaga</div>
     </div>
     <div class="entry-date">2016/17</div>
   </div>
-</div>
+</section>
 
-<!-- ══ INNOVACIÓN ═════════════════════════════════════════════════════════════ -->
-<div class="section t-inn" id="innovacion">
-  <div class="section-label">
-    <span class="es-text">Proyectos de innovación docente</span>
-    <span class="en-text">Teaching innovation projects</span>
-  </div>
-
+<section class="section t-inn" id="innovacion">
+  <div class="section-label es-text">Proyectos de innovación docente</div><div class="section-label en-text">Teaching innovation projects</div>
   <div class="proyecto-card" data-news="2026-10-08" data-kind="proj">
-    <h3 class="es-text">Proyecto de Innovación Educativa INNOVA26 «Transferencia de la Evidencia Científica a la Práctica Profesional»</h3>
-    <h3 class="en-text">Educational Innovation Project INNOVA26 «Transferring Scientific Evidence to Professional Practice»</h3>
-    <p class="es-text">Miembro del equipo. Concedido en la <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">convocatoria INNOVA26</a> de la Universidad de Málaga.</p>
-    <p class="en-text">Team member. Awarded in the University of Málaga <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" target="_blank" rel="noopener" style="color:inherit">INNOVA26 call</a>.</p>
+    <h3 class="es-text">Proyecto de Innovación Educativa INNOVA26 «Transferencia de la Evidencia Científica a la Práctica Profesional»</h3><h3 class="en-text">Educational Innovation Project INNOVA26 «Transferring Scientific Evidence to Professional Practice»</h3>
+    <p class="es-text">Miembro del equipo. Concedido en la <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" rel="noopener" style="color:inherit" target="_blank">convocatoria INNOVA26</a> de la Universidad de Málaga.</p><p class="en-text">Team member. Awarded in the University of Málaga <a href="https://www.uma.es/media/files/Convocatoria_INNOVA26.report.pdf" rel="noopener" style="color:inherit" target="_blank">INNOVA26 call</a>.</p>
     <div class="pdate">2026 – 2028</div>
   </div>
-
   <div class="proyecto-card">
-    <h3 class="es-text">Proyecto de innovación docente «Aulas Clínicas»</h3>
-    <h3 class="en-text">Teaching innovation project «Clinical Classrooms»</h3>
-    <p class="es-text">Miembro del equipo. Elaboración de material audiovisual clínico con pacientes reales de afasia y enfermedades neurodegenerativas para el Máster en Psicología General Sanitaria. Selección de casos, grabación, edición y organización con criterios éticos y de confidencialidad.</p>
-    <p class="en-text">Team member. Creation of clinical audiovisual material with real patients with aphasia and neurodegenerative diseases for the Master's in General Health Psychology. Case selection, recording, editing and organisation following ethical and confidentiality criteria.</p>
+    <h3 class="es-text">Proyecto de innovación docente «Aulas Clínicas»</h3><h3 class="en-text">Teaching innovation project «Clinical Classrooms»</h3>
+    <p class="es-text">Miembro del equipo. Elaboración de material audiovisual clínico con pacientes reales de afasia y enfermedades neurodegenerativas para el Máster en Psicología General Sanitaria. Selección de casos, grabación, edición y organización con criterios éticos y de confidencialidad.</p><p class="en-text">Team member. Creation of clinical audiovisual material with real patients with aphasia and neurodegenerative diseases for the Master's in General Health Psychology. Case selection, recording, editing and organisation following ethical and confidentiality criteria.</p>
     <div class="pdate">2019 – 2021</div>
   </div>
-
   <div class="proyecto-card">
-    <h3 class="es-text">Proyecto de Innovación Educativa «Programa de mentorización para estudiantes de doctorado en Psicología»</h3>
-    <h3 class="en-text">Educational Innovation Project «Mentoring Programme for Doctoral Students in Psychology»</h3>
-    <p class="es-text">Referencia GIE22-097. Participación como Mentora Senior en el diseño e implementación del programa de mentorazgo de doctorandos de la Facultad de Psicología (UMA).</p>
-    <p class="en-text">Reference GIE22-097. Participation as Senior Mentor in the design and implementation of the doctoral mentoring programme at the Faculty of Psychology (UMA).</p>
+    <h3 class="es-text">Proyecto de Innovación Educativa «Programa de mentorización para estudiantes de doctorado en Psicología»</h3><h3 class="en-text">Educational Innovation Project «Mentoring Programme for Doctoral Students in Psychology»</h3>
+    <p class="es-text">Referencia GIE22-097. Participación como Mentora Senior en el diseño e implementación del programa de mentorazgo de doctorandos de la Facultad de Psicología (UMA).</p><p class="en-text">Reference GIE22-097. Participation as Senior Mentor in the design and implementation of the doctoral mentoring programme at the Faculty of Psychology (UMA).</p>
     <div class="pdate">2022 – 2024</div>
   </div>
-</div>
+</section>
 
-<!-- ══ 2. FORMACIÓN ═══════════════════════════════════════════════════════════ -->
-<div class="section t-form" id="formacion">
-  <div class="section-label">
-    <span class="es-text">Formación didáctica recibida</span>
-    <span class="en-text">Teaching training received</span>
-  </div>
-
-  <div class="formacion-note es-text"><strong>Más de 900 horas acreditadas</strong> de formación en innovación docente: metodologías activas, evaluación formativa, analítica del aprendizaje, diversidad funcional, contenidos digitales y comunicación docente.</div>
-  <div class="formacion-note en-text"><strong>Over 900 accredited hours</strong> of teaching innovation training: active methodologies, formative assessment, learning analytics, functional diversity, digital content and teaching communication.</div>
-
+<section class="section t-form" id="formacion">
+  <div class="section-label es-text">Formación didáctica recibida</div><div class="section-label en-text">Teaching training received</div>
+  <div class="formacion-note es-text"><strong>Más de 900 horas acreditadas</strong> de formación en innovación docente: metodologías activas, evaluación formativa, analítica del aprendizaje, diversidad funcional, contenidos digitales y comunicación docente.</div><div class="formacion-note en-text"><strong>Over 900 accredited hours</strong> of teaching innovation training: active methodologies, formative assessment, learning analytics, functional diversity, digital content and teaching communication.</div>
   <div class="entry">
     <div>
-      <div class="entry-title">NOVEL 25 — <span class="es-text">Iniciación a la Mejora de la Docencia Universitaria</span><span class="en-text">Introduction to University Teaching Improvement</span></div>
-      <div class="entry-sub"><span class="es-text">Universidad de Málaga · 90 h</span><span class="en-text">University of Málaga · 90 h</span></div>
+      <div class="entry-title es-text">NOVEL 25 — Iniciación a la Mejora de la Docencia Universitaria</div><div class="entry-title en-text">NOVEL 25 — Introduction to University Teaching Improvement</div>
+      <div class="entry-sub es-text">Universidad de Málaga · 90 h</div><div class="entry-sub en-text">University of Málaga · 90 h</div>
     </div>
     <div class="entry-date">2025</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Formación para la docencia innovadora en programas online (ed. 2)</div>
-      <div class="entry-title en-text">Training for innovative teaching in online programmes (ed. 2)</div>
-      <div class="entry-sub es-text">Universidad Internacional de Andalucía · 175 h · Calificación: 9,3</div>
-      <div class="entry-sub en-text">International University of Andalusia · 175 h · Grade: 9.3</div>
+      <div class="entry-title es-text">Formación para la docencia innovadora en programas online (ed. 2)</div><div class="entry-title en-text">Training for innovative teaching in online programmes (ed. 2)</div>
+      <div class="entry-sub es-text">Universidad Internacional de Andalucía · 175 h · Calificación: 9,3</div><div class="entry-sub en-text">International University of Andalusia · 175 h · Grade: 9.3</div>
     </div>
     <div class="entry-date">2021</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Seminario de formación para profesorado novel, 3.ª fase</div>
-      <div class="entry-title en-text">Early-career teaching seminar, 3rd phase</div>
-      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div>
-      <div class="entry-sub en-text">University of Málaga · 100 h</div>
+      <div class="entry-title es-text">Seminario de formación para profesorado novel, 3.ª fase</div><div class="entry-title en-text">Early-career teaching seminar, 3rd phase</div>
+      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div><div class="entry-sub en-text">University of Málaga · 100 h</div>
     </div>
     <div class="entry-date">2021</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Seminario de formación para profesorado novel, 2.ª fase</div>
-      <div class="entry-title en-text">Early-career teaching seminar, 2nd phase</div>
-      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div>
-      <div class="entry-sub en-text">University of Málaga · 100 h</div>
+      <div class="entry-title es-text">Seminario de formación para profesorado novel, 2.ª fase</div><div class="entry-title en-text">Early-career teaching seminar, 2nd phase</div>
+      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div><div class="entry-sub en-text">University of Málaga · 100 h</div>
     </div>
     <div class="entry-date">2020</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">XVI Curso de formación para profesorado universitario novel, 1.ª fase</div>
-      <div class="entry-title en-text">XVI Early-career university teaching course, 1st phase</div>
-      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div>
-      <div class="entry-sub en-text">University of Málaga · 100 h</div>
+      <div class="entry-title es-text">XVI Curso de formación para profesorado universitario novel, 1.ª fase</div><div class="entry-title en-text">XVI Early-career university teaching course, 1st phase</div>
+      <div class="entry-sub es-text">Universidad de Málaga · 100 h</div><div class="entry-sub en-text">University of Málaga · 100 h</div>
     </div>
     <div class="entry-date">2018</div>
   </div>
-  <p class="formacion-complementaria es-text">Formación complementaria: analítica de datos educativos, visual thinking, evaluación formativa, diversidad funcional, ABP, creación de contenidos digitales multimedia, coaching educativo, oratoria digital (UNIA, UMA, UDIMA, 2018–2025).</p>
-  <p class="formacion-complementaria en-text">Additional training: educational data analytics, visual thinking, formative assessment, functional diversity, PBL, multimedia digital content creation, educational coaching, digital public speaking (UNIA, UMA, UDIMA, 2018–2025).</p>
-</div>
+  <p class="formacion-complementaria es-text">Formación complementaria: analítica de datos educativos, visual thinking, evaluación formativa, diversidad funcional, ABP, creación de contenidos digitales multimedia, coaching educativo, oratoria digital (UNIA, UMA, UDIMA, 2018–2025).</p><p class="formacion-complementaria en-text">Additional training: educational data analytics, visual thinking, formative assessment, functional diversity, PBL, multimedia digital content creation, educational coaching, digital public speaking (UNIA, UMA, UDIMA, 2018–2025).</p>
+</section>
 
-<!-- ══ 4. COORDINACIÓN ════════════════════════════════════════════════════════ -->
-<div class="section t-coord" id="coordinacion">
-  <div class="section-label">
-    <span class="es-text">Coordinación docente y trabajo en equipo</span>
-    <span class="en-text">Teaching coordination and teamwork</span>
-  </div>
-
+<section class="section t-coord" id="coordinacion">
+  <div class="section-label es-text">Coordinación docente y trabajo en equipo</div><div class="section-label en-text">Teaching coordination and teamwork</div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Coordinadora de los Trabajos Fin de Máster · Facultad de Psicología y Logopedia (UMA)</div>
-      <div class="entry-title en-text">Master's Thesis Coordinator · Faculty of Psychology and Speech Therapy (UMA)</div>
-      <div class="entry-sub es-text">4 titulaciones oficiales. Planificación, seminarios, asignación de tutores, comisiones y defensas.</div>
-      <div class="entry-sub en-text">4 official degree programmes. Planning, seminars, tutor allocation, committees and defences.</div>
+      <div class="entry-title es-text">Coordinadora de los Trabajos Fin de Máster · Facultad de Psicología y Logopedia (UMA)</div><div class="entry-title en-text">Master's Thesis Coordinator · Faculty of Psychology and Speech Therapy (UMA)</div>
+      <div class="entry-sub es-text">4 titulaciones oficiales. Planificación, seminarios, asignación de tutores, comisiones y defensas.</div><div class="entry-sub en-text">4 official degree programmes. Planning, seminars, tutor allocation, committees and defences.</div>
     </div>
-    <div class="entry-date es-text">Desde 2025</div>
-    <div class="entry-date en-text">Since 2025</div>
+    <div class="entry-date es-text">Desde 2025</div><div class="entry-date en-text">Since 2025</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Coordinadora de Neuropsicología</div>
-      <div class="entry-title en-text">Neuropsychology Course Coordinator</div>
-      <div class="entry-sub es-text">Grado en Logopedia (desde 2025/26) y Grado en Psicología (desde 2026/27) · Universidad de Málaga</div>
-      <div class="entry-sub en-text">Speech Therapy Degree (since 2025/26) and Psychology Degree (since 2026/27) · University of Málaga</div>
+      <div class="entry-title es-text">Coordinadora de Neuropsicología</div><div class="entry-title en-text">Neuropsychology Course Coordinator</div>
+      <div class="entry-sub es-text">Grado en Logopedia (desde 2025/26) y Grado en Psicología (desde 2026/27) · Universidad de Málaga</div><div class="entry-sub en-text">Speech Therapy Degree (since 2025/26) and Psychology Degree (since 2026/27) · University of Málaga</div>
     </div>
     <div class="entry-date">2025/26 – 2026/27</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Coordinadora de Psicología del Desarrollo y Adquisición del Lenguaje I y II</div>
-      <div class="entry-title en-text">Coordinator of Developmental Psychology and Language Acquisition I and II</div>
-      <div class="entry-sub es-text">Grado en Logopedia · Universidad de Málaga</div>
-      <div class="entry-sub en-text">Speech Therapy Degree · University of Málaga</div>
+      <div class="entry-title es-text">Coordinadora de Psicología del Desarrollo y Adquisición del Lenguaje I y II</div><div class="entry-title en-text">Coordinator of Developmental Psychology and Language Acquisition I and II</div>
+      <div class="entry-sub es-text">Grado en Logopedia · Universidad de Málaga</div><div class="entry-sub en-text">Speech Therapy Degree · University of Málaga</div>
     </div>
     <div class="entry-date">2023/24 – 2024/25</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Miembro de la Comisión Coordinadora de 1.er curso</div>
-      <div class="entry-title en-text">Member of the 1st Year Coordination Committee</div>
-      <div class="entry-sub es-text">Grado en Logopedia · Universidad de Málaga</div>
-      <div class="entry-sub en-text">Speech Therapy Degree · University of Málaga</div>
+      <div class="entry-title es-text">Miembro de la Comisión Coordinadora de 1.er curso</div><div class="entry-title en-text">Member of the 1st Year Coordination Committee</div>
+      <div class="entry-sub es-text">Grado en Logopedia · Universidad de Málaga</div><div class="entry-sub en-text">Speech Therapy Degree · University of Málaga</div>
     </div>
     <div class="entry-date">2023/24</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Dirección de TFG (25) y TFM (9)</div>
-      <div class="entry-title en-text">Supervision of 25 bachelor's and 9 master's theses</div>
-      <div class="entry-sub es-text">Más de 10 tribunales de máster.</div>
-      <div class="entry-sub en-text">Over 10 master's examination boards.</div>
+      <div class="entry-title es-text">Dirección de TFG (25) y TFM (9)</div><div class="entry-title en-text">Supervision of 25 bachelor's and 9 master's theses</div>
+      <div class="entry-sub es-text">Más de 10 tribunales de máster.</div><div class="entry-sub en-text">Over 10 master's examination boards.</div>
     </div>
     <div class="entry-date">2018 – 2026</div>
   </div>
   <div class="entry">
     <div>
-      <div class="entry-title es-text">Mentora Senior · Programa de mentorazgo de doctorandos</div>
-      <div class="entry-title en-text">Senior Mentor · Doctoral Student Mentoring Programme</div>
-      <div class="entry-sub es-text">Facultad de Psicología · Universidad de Málaga</div>
-      <div class="entry-sub en-text">Faculty of Psychology · University of Málaga</div>
+      <div class="entry-title es-text">Mentora Senior · Programa de mentorazgo de doctorandos</div><div class="entry-title en-text">Senior Mentor · Doctoral Student Mentoring Programme</div>
+      <div class="entry-sub es-text">Facultad de Psicología · Universidad de Málaga</div><div class="entry-sub en-text">Faculty of Psychology · University of Málaga</div>
     </div>
     <div class="entry-date">2022 – 2026</div>
   </div>
-</div>
+</section>
 
-<!-- ══ PUBLICACIONES Y COMUNICACIONES ═════════════════════════════════════════ -->
-<div class="section t-pubd" id="comunicaciones">
-  <div class="section-label">
-    <span class="es-text">Publicaciones y comunicaciones</span>
-    <span class="en-text">Publications and communications</span>
-  </div>
-
+<section class="section t-pubd" id="comunicaciones">
+  <div class="section-label es-text">Publicaciones y comunicaciones</div><div class="section-label en-text">Publications and communications</div>
   <div class="comunicacion" data-news="2026-10-08" data-kind="pub">
     <div class="com-body">
       <span class="com-title" data-news-title>Technology-enhanced learning in undergraduate neuroscience education: tractography-based virtual dissection in psychology</span>
-      <span class="com-type oral es-text">Preprint</span>
-      <span class="com-type oral en-text">Preprint</span>
+      <span class="com-type oral es-text">Preprint</span><span class="com-type oral en-text">Preprint</span>
       <div class="com-meta">López-Barroso D., Torres-Prioris M.J. · Preprint · 2026</div>
       <div class="com-actions">
         <a href="https://doi.org/10.64898/2026.09.21.753122" target="_blank" rel="noopener" class="com-btn">DOI</a>
@@ -541,7 +466,6 @@ body.lang-es .en-text { display: none; }
       </div>
     </div>
   </div>
-
   <div class="comunicacion">
     <div class="com-body">
       <a href="publicaciones/Nodos2021_rendimiento.pdf" download class="com-link">
@@ -549,12 +473,10 @@ body.lang-es .en-text { display: none; }
         <span class="en-text">Factors associated with academic performance in Psychobiology: Personality, perseverance and academic engagement</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
-      <span class="com-type oral es-text">Comunicación oral</span>
-      <span class="com-type oral en-text">Oral communication</span>
+      <span class="com-type oral es-text">Comunicación oral</span><span class="com-type oral en-text">Oral communication</span>
       <div class="com-meta">López-Barroso D., Torres-Prioris M.J. · <em>II Congreso Internacional Nodos del Conocimiento</em> · 25-26 noviembre 2021</div>
     </div>
   </div>
-
   <div class="comunicacion">
     <div class="com-body">
       <a href="publicaciones/ICESD2021_personalidad.pdf" download class="com-link">
@@ -562,12 +484,10 @@ body.lang-es .en-text { display: none; }
         <span class="en-text">The relationship between personality traits and academic achievement in Psychobiology course among Psychology university students</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
-      <span class="com-type oral es-text">Comunicación oral</span>
-      <span class="com-type oral en-text">Oral communication</span>
+      <span class="com-type oral es-text">Comunicación oral</span><span class="com-type oral en-text">Oral communication</span>
       <div class="com-meta">Torres-Prioris M.J., Peñaloza C., López-Barroso D. · <em>9th International Congress of Educational Sciences and Development (ICESD)</em> · 20-22 octubre 2021</div>
     </div>
   </div>
-
   <div class="comunicacion">
     <div class="com-body">
       <a href="publicaciones/ICESD2021_docencia_pandemia.pdf" download class="com-link">
@@ -575,69 +495,71 @@ body.lang-es .en-text { display: none; }
         <span class="en-text">University teaching in times of COVID-19: effectiveness of flipped classroom and gamification</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
-      <span class="com-type escrita es-text">Comunicación escrita</span>
-      <span class="com-type escrita en-text">Written communication</span>
+      <span class="com-type escrita es-text">Comunicación escrita</span><span class="com-type escrita en-text">Written communication</span>
       <div class="com-meta">Torres-Prioris M.J., Peñaloza C., Dávila G., López-Barroso D. · <em>9th International Congress of Educational Sciences and Development (ICESD)</em> · 20-22 octubre 2021</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ══ INTERNACIONAL ══════════════════════════════════════════════════════════ -->
-<div class="section t-intl" id="internacional">
-  <div class="section-label">
-    <span class="es-text">Internacionalización docente</span>
-    <span class="en-text">Teaching internationalisation</span>
-  </div>
-
+<section class="section t-intl" id="internacional">
+  <div class="section-label es-text">Internacionalización docente</div><div class="section-label en-text">Teaching internationalisation</div>
   <div class="intl-item">
     <div class="intl-dot"></div>
-    <div class="intl-text es-text">Participación en <strong>Virtual International Days 2021</strong> dentro del programa ERASMUS+ organizado por el University College of Northern Denmark. Noviembre 2021.</div>
-    <div class="intl-text en-text">Participation in <strong>Virtual International Days 2021</strong> within the ERASMUS+ programme organised by the University College of Northern Denmark. November 2021.</div>
+    <div class="intl-text es-text">Participación en <strong>Virtual International Days 2021</strong> dentro del programa ERASMUS+ organizado por el University College of Northern Denmark. Noviembre 2021.</div><div class="intl-text en-text">Participation in <strong>Virtual International Days 2021</strong> within the ERASMUS+ programme organised by the University College of Northern Denmark. November 2021.</div>
   </div>
   <div class="intl-item">
     <div class="intl-dot"></div>
-    <div class="intl-text es-text">Miembro de la Plataforma de Talento <strong>IMFAHE</strong> (International Mentoring Foundation for the Advancement of Higher Education) en el programa International Professional Development Program for Professors (IPDP). Distinción <em>Outstanding Professional</em>. 2021.</div>
-    <div class="intl-text en-text">Member of the <strong>IMFAHE</strong> Talent Platform (International Mentoring Foundation for the Advancement of Higher Education) in the International Professional Development Program for Professors (IPDP). <em>Outstanding Professional</em> distinction. 2021.</div>
+    <div class="intl-text es-text">Miembro de la Plataforma de Talento <strong>IMFAHE</strong> (International Mentoring Foundation for the Advancement of Higher Education) en el programa International Professional Development Program for Professors (IPDP). Distinción <em>Outstanding Professional</em>. 2021.</div><div class="intl-text en-text">Member of the <strong>IMFAHE</strong> Talent Platform (International Mentoring Foundation for the Advancement of Higher Education) in the International Professional Development Program for Professors (IPDP). <em>Outstanding Professional</em> distinction. 2021.</div>
   </div>
-</div>
+</section>
 
 <hr style="border:none; border-top: 1px solid #2A2A2A; margin: 0;">
 
-<!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
 <div class="footer-wrap">
-  <footer>
-    <div class="logo-bar">
-      <a href="https://www.uma.es/" target="_blank">
-        <img src="assets/img/logos/logo-universidad.png" alt="Logo Universidad">
-      </a>
-      <a href="https://www.uma.es/facultad-de-psicologia/" target="_blank">
-        <img src="assets/img/logos/logo-facultad.png" alt="Logo Facultad">
-      </a>
+<footer>
+  <div class="logo-bar">
+    <a href="https://www.uma.es/" target="_blank">
+      <img src="assets/img/logos/logo-universidad.png" alt="Logo Universidad">
+    </a>
+    <a href="https://www.uma.es/facultad-de-psicologia/" target="_blank">
+      <img src="assets/img/logos/logo-facultad.png" alt="Logo Facultad">
+    </a>
+  </div>
+  <div class="footer-left">
+    <div><span class="es-text">María José Torres-Prioris · Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Universidad de Málaga</span><span class="en-text">María José Torres-Prioris · Dept. of Psychobiology and Methodology of Behavioural Sciences · University of Málaga</span></div>
+    <div style="margin-top:4px">
+      <a href="https://orcid.org/0000-0003-3795-8151" target="_blank">ORCID</a> ·
+      <a href="https://portaldelainvestigacion.uma.es/investigadores/1104282/detalle" target="_blank">Portal UMA</a> ·
+      <a href="https://afasia.es" target="_blank">afasia.es</a>
     </div>
-    <div class="footer-left">
-      <div><span class="es-text">María José Torres-Prioris · Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Universidad de Málaga</span><span class="en-text">María José Torres-Prioris · Dept. of Psychobiology and Methodology of Behavioural Sciences · University of Málaga</span></div>
-      <div style="margin-top:4px">
-        <a href="https://orcid.org/0000-0003-3795-8151" target="_blank">ORCID</a> ·
-        <a href="https://portaldelainvestigacion.uma.es/investigadores/1104282/detalle" target="_blank">Portal UMA</a>
-      </div>
-      <div style="margin-top:4px;font-size:13px"><span class="es-text">© 2026 María José Torres-Prioris · Todos los derechos reservados</span><span class="en-text">© 2026 María José Torres-Prioris · All rights reserved</span></div>
-    </div>
-    <div class="footer-right">
-      <a href="index.html" class="es-text">Inicio</a>
-      <a href="index.html" class="en-text">Home</a>
-      <a href="research.html" class="es-text">Investigación</a>
-      <a href="research.html" class="en-text">Research</a>
-    </div>
-  </footer>
+    <div style="margin-top:4px;font-size:13px"><span class="es-text">© 2026 María José Torres-Prioris · Todos los derechos reservados</span><span class="en-text">© 2026 María José Torres-Prioris · All rights reserved</span></div>
+  </div>
+  <div class="footer-right">
+    <a href="index.html" class="es-text">Inicio</a>
+    <a href="index.html" class="en-text">Home</a>
+    <a href="research.html" class="es-text">Investigación</a>
+    <a href="research.html" class="en-text">Research</a>
+  </div>
+</footer>
 </div>
 
 <script>
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
 function setLang(lang) {
   document.body.className = 'lang-' + lang;
   localStorage.setItem('lang', lang);
 }
 const saved = localStorage.getItem('lang');
 if (saved) setLang(saved);
+function filterPubs(type, btn) {
+  document.querySelectorAll('.pub-group').forEach(g => g.classList.remove('visible'));
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pub-' + type).classList.add('visible');
+  btn.classList.add('active');
+}
 </script>
 <script src="assets/banner.js"></script>
 </body>

@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <title>María José Torres-Prioris · Neuropsychology & Language</title>
@@ -318,12 +317,25 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Bloques añadidos desde el panel */
+.bloque-texto p { font-size: 16px; line-height: 1.75; color: #B0B0B0; max-width: 760px; margin-bottom: 14px; }
+.bloque-texto a, .bloque-enlaces span a { color: var(--teal); }
+.bloque-con-foto { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 36px; align-items: start; }
+.bloque-con-foto img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border); display: block; }
+a.bloque-tarjeta { text-decoration: none; color: inherit; display: block; }
+a.bloque-tarjeta:hover { border-color: var(--teal); }
+.bloque-enlaces { list-style: none; max-width: 760px; }
+.bloque-enlaces li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.bloque-enlaces li > a { color: var(--teal); text-decoration: none; font-weight: 500; }
+.bloque-enlaces li > span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+body.lang-en .bloque-enlaces .es-text, body.lang-es .bloque-enlaces .en-text { display: none; }
+@media (max-width: 760px) { .bloque-con-foto { grid-template-columns: 1fr; } }
 </style>
 <link rel="stylesheet" href="assets/banner.css">
 </head>
 <body class="lang-es">
 
-<!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">MJTP<span>.</span></a>
   <ul class="nav-links">
@@ -336,7 +348,6 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
   </div>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">
@@ -344,8 +355,7 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
       <span class="en-text">Neuropsychology · Language · Neuroscience</span>
     </div>
     <h1 id="hero-name">María José Torres-Prioris<span class="cursor"></span></h1>
-    <div class="hero-role es-text">Investigadora · Docente Universitaria</div>
-    <div class="hero-role en-text">Researcher · University Lecturer</div>
+    <div class="hero-role es-text">Investigadora · Docente Universitaria</div><div class="hero-role en-text">Researcher · University Lecturer</div>
     <div class="hero-affil">
       <div class="es-text">Dpto. de Psicobiología y Metodología de las Ciencias del Comportamiento · Facultad de Psicología y Logopedia · Universidad de Málaga</div>
       <div class="en-text">Dept. of Psychobiology and Methodology of Behavioural Sciences · Faculty of Psychology and Speech Therapy · University of Málaga</div>
@@ -402,10 +412,6 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
   </div>
 </section>
 
-
-<!-- ══ BANNER ROTATORIO ══════════════════════════════════════════════════════
-     Se genera solo (assets/banner.js) a partir de research.html y teaching.html: cada elemento
-     con data-news="AAAA-MM-DD" (fecha en que se sube) y data-kind aparece durante 4 meses. -->
 <div class="banner" id="banner" data-sources="research.html teaching.html" hidden>
   <div class="banner-inner">
     <div class="banner-dot"></div>
@@ -414,10 +420,8 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
   <div class="banner-dots" id="banner-dots"></div>
 </div>
 
-<!-- ══ PUBLICACIONES RECIENTES ═══════════════════════════════════════════════ -->
 <section class="section" id="publications">
-  <div class="section-label es-text">Publicaciones recientes</div>
-  <div class="section-label en-text">Recent publications</div>
+  <div class="section-label es-text">Publicaciones recientes</div><div class="section-label en-text">Recent publications</div>
   <div class="pub-list">
     <div class="pub-item">
       <div class="pub-year">2026</div>
@@ -426,22 +430,21 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
         <div class="pub-authors">Berthier M.L., Gómez-Pérez Á.Y., Dávila G., <em>Torres-Prioris M.J.</em>, Birba A., García A.M.</div>
         <div class="pub-journal">Aphasiology (online 29 Jul 2026)</div>
       </div>
-      <div class="pub-actions">
-        <a href="https://doi.org/10.1080/02687038.2026.2708827" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1080/02687038.2026.2708827" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
     <div class="pub-item">
       <div class="pub-year">2026</div>
       <div>
         <div class="pub-title">Mapping the neural patterns of verbal repetition: an activation likelihood estimation meta-analysis</div>
-        <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> & López-Barroso D.* (*Equal contribution. Corresponding authors)</div>
+        <div class="pub-authors">Awana A., Berthier M.L., <em>Torres-Prioris M.J.*</em> &amp; López-Barroso D.* (*Equal contribution. Corresponding authors)</div>
         <div class="pub-journal">Brain Structure and Function, 231, 75</div>
-        
       </div>
-      <div class="pub-actions">
-        <a href="papers/Awana et al. 2026.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
-        <a href="https://doi.org/10.1007/s00429-026-03119-3" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="papers/Awana et al. 2026.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1007/s00429-026-03119-3" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
     <div class="pub-item">
       <div class="pub-year">2026</div>
@@ -450,10 +453,10 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
         <div class="pub-authors">Berthier M.L., Sosa-Welford A., Orozco-Arroyave J.R., López-Barroso D., <em>Torres-Prioris M.J.</em>, Dávila G., García A.M.</div>
         <div class="pub-journal">Expert Review of Neurotherapeutics, 26(1), 15–34</div>
       </div>
-      <div class="pub-actions">
-        <a href="papers/J23.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
-        <a href="https://doi.org/10.1080/14737175.2025.2600616" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="papers/J23.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1080/14737175.2025.2600616" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
     <div class="pub-item">
       <div class="pub-year">2026</div>
@@ -462,10 +465,10 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
         <div class="pub-authors">Gutiérrez-Cordero I., Berthier M.L., <em>Torres-Prioris M.J.</em>, García-Orza J.</div>
         <div class="pub-journal">Aphasiology, 1–41</div>
       </div>
-      <div class="pub-actions">
-        <a href="papers/J21.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
-        <a href="https://doi.org/10.1080/02687038.2026.2613004" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="papers/J21.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1080/02687038.2026.2613004" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
     <div class="pub-item">
       <div class="pub-year">2025</div>
@@ -474,10 +477,10 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
         <div class="pub-authors">Gutiérrez-Cordero I., <em>Torres-Prioris M.J.</em>, García-Orza J.</div>
         <div class="pub-journal">Cortex, 185, 151–152</div>
       </div>
-      <div class="pub-actions">
-        <a href="papers/J22.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
-        <a href="https://doi.org/10.1016/j.cortex.2025.02.007" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="papers/J22.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1016/j.cortex.2025.02.007" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
     <div class="pub-item">
       <div class="pub-year">2023</div>
@@ -486,60 +489,51 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
         <div class="pub-authors">Dávila G.*, <em>Torres-Prioris M.J.*</em>, López-Barroso D., Berthier M.L. <span style="font-size:12px;color:var(--muted)">*Equal contribution</span></div>
         <div class="pub-journal">CNS Drugs, 37(7), 599–637</div>
       </div>
-      <div class="pub-actions">
-        <a href="papers/J19.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
-        <a href="https://doi.org/10.1007/s40263-023-01017-4" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
-      </div>
+        <div class="pub-actions">
+          <a href="papers/J19.pdf" download class="pub-btn pub-btn-pdf">PDF</a>
+          <a href="https://doi.org/10.1007/s40263-023-01017-4" target="_blank" class="pub-btn pub-btn-doi">DOI</a>
+        </div>
     </div>
   </div>
-  <a href="research.html" class="view-all es-text">Ver todas las publicaciones</a>
-  <a href="research.html" class="view-all en-text">View all publications</a>
+  <a href="research.html#publications" class="view-all es-text">Ver todas las publicaciones</a>
+  <a href="research.html#publications" class="view-all en-text">View all publications</a>
 </section>
 
-<!-- ══ PREMIOS ════════════════════════════════════════════════════════════════ -->
 <section class="section" id="awards">
-  <div class="section-label es-text">Reconocimientos</div>
-  <div class="section-label en-text">Awards & honours</div>
+  <div class="section-label es-text">Reconocimientos</div><div class="section-label en-text">Awards &amp; honours</div>
   <div class="awards-grid">
     <div class="award-item">
       <div class="award-year">2023</div>
       <div>
-        <div class="award-title es-text">Premio Ig Nobel · Comunicación</div>
-        <div class="award-title en-text">Ig Nobel Prize · Communication</div>
-        <div class="award-source es-text">Por <a href="research.html#publications" style="color:inherit">«Neurocognitive signatures of phonemic sequencing in expert backward speakers»</a> · <a href="https://improbable.com/ig/winners/#ig2023" target="_blank" rel="noopener" style="color:inherit">Improbable Research</a> · <a href="https://www.youtube.com/watch?v=P9UQi0ORXv4&amp;t=2170s" target="_blank" rel="noopener" style="color:inherit">Vídeo (min. 36:10–41:43)</a></div>
-        <div class="award-source en-text">For <a href="research.html#publications" style="color:inherit">“Neurocognitive signatures of phonemic sequencing in expert backward speakers”</a> · <a href="https://improbable.com/ig/winners/#ig2023" target="_blank" rel="noopener" style="color:inherit">Improbable Research</a> · <a href="https://www.youtube.com/watch?v=P9UQi0ORXv4&amp;t=2170s" target="_blank" rel="noopener" style="color:inherit">Video (36:10–41:43)</a></div>
+        <div class="award-title es-text">Premio Ig Nobel · Comunicación</div><div class="award-title en-text">Ig Nobel Prize · Communication</div>
+        <div class="award-source es-text">Por <a href="research.html#publications" style="color:inherit">«Neurocognitive signatures of phonemic sequencing in expert backward speakers»</a> · <a href="https://improbable.com/ig/winners/#ig2023" rel="noopener" style="color:inherit" target="_blank">Improbable Research</a> · <a href="https://www.youtube.com/watch?v=P9UQi0ORXv4&amp;t=2170s" rel="noopener" style="color:inherit" target="_blank">Vídeo (min. 36:10–41:43)</a></div><div class="award-source en-text">For <a href="research.html#publications" style="color:inherit">“Neurocognitive signatures of phonemic sequencing in expert backward speakers”</a> · <a href="https://improbable.com/ig/winners/#ig2023" rel="noopener" style="color:inherit" target="_blank">Improbable Research</a> · <a href="https://www.youtube.com/watch?v=P9UQi0ORXv4&amp;t=2170s" rel="noopener" style="color:inherit" target="_blank">Video (36:10–41:43)</a></div>
       </div>
     </div>
     <div class="award-item">
       <div class="award-year">2023</div>
       <div>
-        <div class="award-title es-text">Premio Extraordinario de Doctorado</div>
-        <div class="award-title en-text">Extraordinary Doctorate Award</div>
-        <div class="award-source es-text">Programa de Biomedicina · Universidad de Málaga</div>
-        <div class="award-source en-text">Biomedicine Doctoral Programme · University of Málaga</div>
+        <div class="award-title es-text">Premio Extraordinario de Doctorado</div><div class="award-title en-text">Extraordinary Doctorate Award</div>
+        <div class="award-source es-text">Programa de Biomedicina · Universidad de Málaga</div><div class="award-source en-text">Biomedicine Doctoral Programme · University of Málaga</div>
       </div>
     </div>
     <div class="award-item">
       <div class="award-year">2022</div>
       <div>
-        <div class="award-title es-text">Premio UMA a la Trayectoria Docente</div>
-        <div class="award-title en-text">UMA Teaching Career Award</div>
+        <div class="award-title es-text">Premio UMA a la Trayectoria Docente</div><div class="award-title en-text">UMA Teaching Career Award</div>
         <div class="award-source es-text">Universidad de Málaga</div><div class="award-source en-text">University of Málaga</div>
       </div>
     </div>
     <div class="award-item">
       <div class="award-year">2020</div>
       <div>
-        <div class="award-title es-text">Mejor expediente — Programas Doctorales Biomédicos (Accésit)</div>
-        <div class="award-title en-text">Best Academic Record — Biomedical Doctoral Programmes (Runner-up)</div>
+        <div class="award-title es-text">Mejor expediente — Programas Doctorales Biomédicos (Accésit)</div><div class="award-title en-text">Best Academic Record — Biomedical Doctoral Programmes (Runner-up)</div>
         <div class="award-source es-text">IBIMA · Universidad de Málaga</div><div class="award-source en-text">IBIMA · University of Málaga</div>
       </div>
     </div>
     <div class="award-item">
       <div class="award-year">2015</div>
       <div>
-        <div class="award-title es-text">Premio Extraordinario de Fin de Carrera — Psicología</div>
-        <div class="award-title en-text">Exceptional End of Studies Award — Psychology</div>
+        <div class="award-title es-text">Premio Extraordinario de Fin de Carrera — Psicología</div><div class="award-title en-text">Exceptional End of Studies Award — Psychology</div>
         <div class="award-source es-text">Universidad de Málaga</div><div class="award-source en-text">University of Málaga</div>
       </div>
     </div>
@@ -548,7 +542,6 @@ body.lang-en .lang-btn[data-lang="es"] { background: none; color: var(--muted); 
 
 <hr style="border:none; border-top: 1px solid #2A2A2A; margin: 0;">
 
-<!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
 <div class="footer-wrap">
 <footer>
   <div class="logo-bar">
@@ -588,8 +581,14 @@ function setLang(lang) {
 }
 const saved = localStorage.getItem('lang');
 if (saved) setLang(saved);
+function filterPubs(type, btn) {
+  document.querySelectorAll('.pub-group').forEach(g => g.classList.remove('visible'));
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pub-' + type).classList.add('visible');
+  btn.classList.add('active');
+}
 const nameEl = document.getElementById('hero-name');
-const fullName = 'María José Torres-Prioris';
+const fullName = "María José Torres-Prioris";
 nameEl.childNodes[0].textContent = '';
 let i = 0;
 function type() {
@@ -599,7 +598,6 @@ function type() {
   }
 }
 setTimeout(type, 300);
-
 </script>
 <script src="assets/banner.js"></script>
 </body>
